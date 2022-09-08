@@ -14,7 +14,6 @@
                 </div>
                 <!-- Navigation Links -->
                 <div class="hidden space-x-8 sm:-my-px sm:ml-10 sm:flex">
-<<<<<<< HEAD
                   <NavLink
                     :href="route('index')"
                     :active="route().current('index')"
@@ -34,13 +33,12 @@
                   >
                     About Us
                   </NavLink>
-                  <NavLink> Contact </NavLink>
-=======
-                  <NavLink :href="route('index')" :active="route().current('index')"> Home </NavLink>
-                  <NavLink :href="route('shop')" :active="route().current('shop')"> Shop </NavLink>
-                  <NavLink class="whitespace-nowrap" :href="route('aboutUs')" :active="route().current('aboutUs')"> About Us </NavLink>
-                  <NavLink :href="route('contact')" :active="route().current('contact')"> Contact </NavLink>
->>>>>>> 2b4da06f558fc7c66985204cfa3929ac5829530d
+                  <NavLink
+                    :href="route('contact')"
+                    :active="route().current('contact')"
+                  >
+                    Contact
+                  </NavLink>
                   <input
                     class="h-fit mt-3.5 p-1.5 border-[#e93578] border-2 w-56"
                     value="Search..."
@@ -115,12 +113,12 @@
         </div>
         <div class="w-1/2 h-fit my-auto">
           <div class="w-fit mx-auto my-auto h-fit">
-            <div>Connect with us</div>
-            <div class="flex w-fit m-auto">
+            <div class="text-lg">Connect with us</div>
+            <div class="flex w-fit m-auto gap-x-5">
               <svg
                 xmlns="http://www.w3.org/2000/svg"
-                width="25"
-                height="25"
+                width="35"
+                height="35"
                 fill="currentColor"
                 class="bi bi-facebook text-[#e93578]"
                 viewBox="0 0 16 16"
@@ -131,8 +129,8 @@
               </svg>
               <svg
                 xmlns="http://www.w3.org/2000/svg"
-                width="25"
-                height="25"
+                width="35"
+                height="35"
                 fill="currentColor"
                 class="bi bi-twitter text-[#e93578]"
                 viewBox="0 0 16 16"
@@ -143,8 +141,8 @@
               </svg>
               <svg
                 xmlns="http://www.w3.org/2000/svg"
-                width="25"
-                height="25"
+                width="35"
+                height="35"
                 fill="currentColor"
                 class="bi bi-instagram text-[#e93578]"
                 viewBox="0 0 16 16"
@@ -157,7 +155,7 @@
           </div>
         </div>
       </div>
-      <div class="w-full text-center text-gray-400">© StamPoint 2022</div>
+      <div class="w-full text-lg mb-2 text-center text-gray-400">© StamPoint 2022</div>
     </footer>
   </div>
 </template>

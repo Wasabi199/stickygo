@@ -3,7 +3,7 @@
         <div class=" w-full min-h-screen  bg-no-repeat bg-cover " style="background-image:url('/images/Bgm-Stickers.png')">
             <div class="h-fit py-96 w-full">
                 <Link :href="route('shop')">
-                    <div class="w-72 mx-auto text-center h-20  bg-[#fcd062] text-[#e93578] font-[500] rounded-lg p-5 text-2xl">
+                    <div class="w-72 mx-auto text-center h-20  bg-[#fcd062] text-[#e93578] font-[600] rounded-lg p-6 text-2xl">
                         SHOP NOW
                     </div>
                 </Link>
