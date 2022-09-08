@@ -14,6 +14,7 @@
                 </div>
                 <!-- Navigation Links -->
                 <div class="hidden space-x-8 sm:-my-px sm:ml-10 sm:flex">
+<<<<<<< HEAD
                   <NavLink
                     :href="route('index')"
                     :active="route().current('index')"
@@ -34,6 +35,12 @@
                     About Us
                   </NavLink>
                   <NavLink> Contact </NavLink>
+=======
+                  <NavLink :href="route('index')" :active="route().current('index')"> Home </NavLink>
+                  <NavLink :href="route('shop')" :active="route().current('shop')"> Shop </NavLink>
+                  <NavLink class="whitespace-nowrap" :href="route('aboutUs')" :active="route().current('aboutUs')"> About Us </NavLink>
+                  <NavLink :href="route('contact')" :active="route().current('contact')"> Contact </NavLink>
+>>>>>>> 2b4da06f558fc7c66985204cfa3929ac5829530d
                   <input
                     class="h-fit mt-3.5 p-1.5 border-[#e93578] border-2 w-56"
                     value="Search..."

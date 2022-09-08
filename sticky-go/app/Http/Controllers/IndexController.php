@@ -26,4 +26,9 @@ class IndexController extends Controller
             
         ]);
     }
+    public function contact(){
+        return Inertia::render('StickyGo/Page/Contact',[
+
+        ]);
+    }
 }
