@@ -13,4 +13,14 @@ class IndexController extends Controller
 
         ]);
     }
+    public function aboutUs(){
+        return Inertia::render('StickyGo/Page/AboutUs',[
+            
+        ]);
+    }
+    public function shop(){
+        return Inertia::render('StickyGo/Page/Shop',[
+            
+        ]);
+    }
 }
