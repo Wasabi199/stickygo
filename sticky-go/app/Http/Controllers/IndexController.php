@@ -2,7 +2,7 @@
 
 namespace App\Http\Controllers;
 
-use App\Models\stickers;
+use App\Models\{stickers, User};
 use Illuminate\Http\Request;
 use Inertia\Inertia;
 
@@ -11,9 +11,11 @@ class IndexController extends Controller
     //
     public function index(){
         $stickers = stickers::with('otherImages')->limit(5)->get();
-        // dd($stickers);
+        $artist = User::limit(5)->get();
+        // dd($artist);
         return Inertia::render('StickyGo/index',[
-            'Stickers'=>$stickers
+            'Stickers'=>$stickers,
+            'Artist'=>$artist
         ]);
     }
     public function aboutUs(){
@@ -22,8 +24,9 @@ class IndexController extends Controller
         ]);
     }
     public function shop(){
+        $stickers = stickers::with('otherImages')->limit(20)->paginate(20);
         return Inertia::render('StickyGo/Page/Shop',[
-            
+            'Stickers'=>$stickers
         ]);
     }
     public function contact(){

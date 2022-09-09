@@ -41,32 +41,160 @@
                   </NavLink>
                   <input
                     class="h-fit mt-3.5 p-1.5 border-[#e93578] border-2 w-56"
-                    value="Search..."
+                    placeholder="Search..."
                   />
-                  <svg
-                    xmlns="http://www.w3.org/2000/svg"
-                    width="35"
-                    height="35"
-                    fill="currentColor"
-                    class="bi bi-bell text-[#e93578] mt-3.5"
-                    viewBox="0 0 16 16"
-                  >
-                    <path
-                      d="M8 16a2 2 0 0 0 2-2H6a2 2 0 0 0 2 2zM8 1.918l-.797.161A4.002 4.002 0 0 0 4 6c0 .628-.134 2.197-.459 3.742-.16.767-.376 1.566-.663 2.258h10.244c-.287-.692-.502-1.49-.663-2.258C12.134 8.197 12 6.628 12 6a4.002 4.002 0 0 0-3.203-3.92L8 1.917zM14.22 12c.223.447.481.801.78 1H1c.299-.199.557-.553.78-1C2.68 10.2 3 6.88 3 6c0-2.42 1.72-4.44 4.005-4.901a1 1 0 1 1 1.99 0A5.002 5.002 0 0 1 13 6c0 .88.32 4.2 1.22 6z"
-                    />
-                  </svg>
-                  <svg
-                    xmlns="http://www.w3.org/2000/svg"
-                    width="40"
-                    height="40"
-                    fill="currentColor"
-                    class="bi bi-person text-[#e93578] mt-3.5"
-                    viewBox="0 0 16 16"
-                  >
-                    <path
-                      d="M8 8a3 3 0 1 0 0-6 3 3 0 0 0 0 6zm2-3a2 2 0 1 1-4 0 2 2 0 0 1 4 0zm4 8c0 1-1 1-1 1H3s-1 0-1-1 1-4 6-4 6 3 6 4zm-1-.004c-.001-.246-.154-.986-.832-1.664C11.516 10.68 10.289 10 8 10c-2.29 0-3.516.68-4.168 1.332-.678.678-.83 1.418-.832 1.664h10z"
-                    />
-                  </svg>
+                  <Popover class="relative">
+                    <PopoverButton>
+                      <span class="inline-block cursor-pointer">
+                        <svg
+                          xmlns="http://www.w3.org/2000/svg"
+                          width="35"
+                          height="35"
+                          fill="currentColor"
+                          class="bi bi-bell text-[#e93578] h-fit mt-3.5"
+                          viewBox="0 0 16 16"
+                        >
+                          <path
+                            d="M8 16a2 2 0 0 0 2-2H6a2 2 0 0 0 2 2zM8 1.918l-.797.161A4.002 4.002 0 0 0 4 6c0 .628-.134 2.197-.459 3.742-.16.767-.376 1.566-.663 2.258h10.244c-.287-.692-.502-1.49-.663-2.258C12.134 8.197 12 6.628 12 6a4.002 4.002 0 0 0-3.203-3.92L8 1.917zM14.22 12c.223.447.481.801.78 1H1c.299-.199.557-.553.78-1C2.68 10.2 3 6.88 3 6c0-2.42 1.72-4.44 4.005-4.901a1 1 0 1 1 1.99 0A5.002 5.002 0 0 1 13 6c0 .88.32 4.2 1.22 6z"
+                          />
+                        </svg>
+                        <span
+                          class="
+                            absolute
+                            top-5
+                            right-0
+                            inline-flex
+                            items-center
+                            justify-center
+                            px-2
+                            py-1
+                            text-xs
+                            font-bold
+                            leading-none
+                            text-[#e93578]
+                            transform
+                            translate-x-1/2
+                            -translate-y-1/2
+                            bg-[#fcd062]
+                            rounded-full
+                          "
+                        >
+                          {{ 0 }}
+                        </span>
+                      </span>
+                    </PopoverButton>
+
+                    <PopoverPanel class="absolute z-10 w-96 right-[-10rem]">
+                      <div
+                        class="
+                          flex flex-col
+                          bg-white/75
+                          backdrop-blur-lg
+                          rounded-xl
+                          shadow-xl
+                          py-5
+                          px-3
+                        "
+                      >
+                        <div class="flex justify-between h-6">
+                          <span class="mb-5">Notifications</span>
+                          <div
+                            class="
+                              flex
+                              items-center
+                              justify-center
+                              bg-[#fcd062]
+                              rounded-full
+                              px-3
+                              py-1
+                              space-x-2
+                              cursor-pointer
+                            "
+                          >
+                            <svg
+                              xmlns="http://www.w3.org/2000/svg"
+                              aria-hidden="true"
+                              role="img"
+                              class="h-4 w-4 text-white"
+                              preserveAspectRatio="xMidYMid meet"
+                              viewBox="0 0 28 28"
+                            >
+                              <path
+                                fill="currentColor"
+                                d="M21.75 3A3.25 3.25 0 0 1 25 6.25v15.5A3.25 3.25 0 0 1 21.75 25H6.25A3.25 3.25 0 0 1 3 21.75V6.25A3.25 3.25 0 0 1 6.25 3h15.5Zm0 1.5H6.25A1.75 1.75 0 0 0 4.5 6.25V15h6a.75.75 0 0 1 .743.648l.007.102a2.75 2.75 0 1 0 5.5 0a.75.75 0 0 1 .648-.743L17.5 15h6V6.25a1.75 1.75 0 0 0-1.75-1.75Z"
+                              />
+                            </svg>
+                            <span class="text-white text-sm"> unread</span>
+                          </div>
+                        </div>
+                        <div
+                          class="
+                            flex flex-col
+                            space-y-2
+                            max-h-60
+                            overflow-y-auto
+                            p-1
+                            mt-2
+                          "
+                        ></div>
+
+                        <div
+                          class="
+                            flex flex-col
+                            space-y-2
+                            p-1
+                            mt-2
+                            text-base text-slate-500
+                          "
+                        >
+                          You dont have any notifications at the moment. 😢
+                        </div>
+                      </div>
+                    </PopoverPanel>
+                  </Popover>
+
+                  <Popover class="relative">
+                    <PopoverButton>
+                      <span class="inline-block cursor-pointer">
+                        <svg
+                          xmlns="http://www.w3.org/2000/svg"
+                          width="40"
+                          height="40"
+                          fill="currentColor"
+                          class="bi bi-person text-[#e93578] mt-3.5"
+                          viewBox="0 0 16 16"
+                        >
+                          <path
+                            d="M8 8a3 3 0 1 0 0-6 3 3 0 0 0 0 6zm2-3a2 2 0 1 1-4 0 2 2 0 0 1 4 0zm4 8c0 1-1 1-1 1H3s-1 0-1-1 1-4 6-4 6 3 6 4zm-1-.004c-.001-.246-.154-.986-.832-1.664C11.516 10.68 10.289 10 8 10c-2.29 0-3.516.68-4.168 1.332-.678.678-.83 1.418-.832 1.664h10z"
+                          />
+                        </svg>
+                      </span>
+                    </PopoverButton>
+
+                    <PopoverPanel class="absolute z-10 w-52 right-[-10rem]">
+                      <div
+                        class="
+                          flex flex-col
+                          bg-white/75
+                          backdrop-blur-lg
+                          rounded-xl
+                          shadow-xl
+                          py-5
+                          px-3
+                        "
+                      >
+                        <div class="h-fit  text-lg font-semibold cursor-pointer ">
+                          <Link :href="route('login')">
+                            <div  class="w-full h-full p-2 rounded-lg hover:bg-[#e93578] hover:text-[#fcd062]">Log In</div>
+                          </Link>
+                          <Link :href="route('register')">
+                            <div class="w-full h-full p-2 rounded-lg hover:bg-[#e93578] hover:text-[#fcd062]">Sign Up</div>
+                          </Link>
+                          </div>
+                      </div>
+                    </PopoverPanel>
+                  </Popover>
+
                   <svg
                     xmlns="http://www.w3.org/2000/svg"
                     width="40"
@@ -155,7 +283,9 @@
           </div>
         </div>
       </div>
-      <div class="w-full text-lg mb-2 text-center text-gray-400">© StamPoint 2022</div>
+      <div class="w-full text-lg mb-2 text-center text-gray-400">
+        © StamPoint 2022
+      </div>
     </footer>
   </div>
 </template>
@@ -163,6 +293,8 @@
 import { Head, Link } from "@inertiajs/inertia-vue3";
 import ApplicationMark from "@/Components/ApplicationMark.vue";
 import NavLink from "@/Components/NavLink.vue";
+import { Popover, PopoverButton, PopoverPanel } from "@headlessui/vue";
+import { Menu, MenuButton, MenuItems, MenuItem } from "@headlessui/vue";
 
 export default {
   setup() {},
@@ -171,6 +303,23 @@ export default {
     Link,
     ApplicationMark,
     NavLink,
+    Popover,
+    PopoverButton,
+    PopoverPanel,
+    Menu,
+    MenuButton,
+    MenuItems,
+    MenuItem,
+  },
+  data() {
+    return {
+      links: [
+        { href: "/account-settings", label: "Account settings" },
+        { href: "/support", label: "Support" },
+        { href: "/license", label: "License" },
+        { href: "/sign-out", label: "Sign out" },
+      ],
+    };
   },
 };
 </script>

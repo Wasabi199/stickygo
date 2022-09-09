@@ -13,7 +13,10 @@ class stickers extends Model
         'price',
         'product_profile',  
     ];
-
+    public function user(){
+        return $this->belongsTo(User::class);
+    }
+    
     public function otherImages(){
         return $this->hasMany(otherImages::class);
     }

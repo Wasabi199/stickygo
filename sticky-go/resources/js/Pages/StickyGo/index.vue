@@ -20,9 +20,8 @@
                 <div class="" v-for="sticker in Stickers" v-bind:key="sticker.id">
                     <img class="mb-2 border-t-4 border-gray-200" :src="sticker.product_profile=null?'':sticker.product_profile">
                     <span class="font-semibold  text-lg pl-2">{{sticker.title}}</span>
-                    <h5 class="text-blue-300 pl-2">₱ {{sticker.price.toLocaleString('en-US')}}</h5>
+                    <h5 class="text-blue-300 pl-2">₱ {{sticker.price.toLocaleString('en-US')}}.00</h5>
                 </div>
-              
             </div>
             <div class="flex justify-between w-full mt-20 ">
                 <div class="font-semibold text-2xl">Stickers you might like</div>
@@ -34,7 +33,17 @@
                 <div class="" v-for="sticker in Stickers" v-bind:key="sticker.id">
                     <img class="mb-2 border-t-4 border-gray-200" :src="sticker.product_profile=null?'':sticker.product_profile">
                     <span class="font-semibold  text-lg pl-2">{{sticker.title}}</span>
-                    <h5 class="text-blue-300 pl-2">₱ {{sticker.price.toLocaleString('en-US')}}</h5>
+                    <h5 class="text-blue-300 pl-2">₱ {{sticker.price.toLocaleString('en-US')}}.00</h5>
+                </div>
+            </div>
+            <div class="flex justify-between w-full mt-20 ">
+                <div class="font-semibold text-2xl">Feature Artist</div>
+            </div>
+            <div class="flex mt-5 gap-x-4" >
+                <div class="text-center m-auto" v-for="artist in Artist" v-bind:key="artist.id">
+                    <img class="w-54 mb-2 border-t-4 rounded-full border-gray-200" :src="artist.profile_photo_path=null?'':artist.profile_photo_path">
+                    <span class="font-semibold  text-lg pl-2">{{artist.name}}</span>
+                    
                 </div>
             </div>
         </div>
@@ -50,6 +59,7 @@ export default {
     },
     props:{
         Stickers:Object,
+        Artist:Object,
     },
     components:{
         Navigation,

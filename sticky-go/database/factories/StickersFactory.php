@@ -16,11 +16,18 @@ class StickersFactory extends Factory
      */
     public function definition()
     {
+        $stikers=[
+            '/images/Sticker.png',
+            '/images/Sticker1.png',
+            '/images/Sticker2.png',
+           
+        ];
         return [
             //
             'title'=>$this->faker->word(),
             'price'=>$this->faker->numberBetween($min=0,$max=1000000),
-            'product_profile'=>'/images/Sticker.png'
+            'product_profile'=>$this->faker->randomElement($stikers)
         ];
+   
     }
 }
