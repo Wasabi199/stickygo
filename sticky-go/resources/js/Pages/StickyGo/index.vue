@@ -41,8 +41,9 @@
             </div>
             <div class="flex mt-5 gap-x-4" >
                 <div class="text-center m-auto" v-for="artist in Artist" v-bind:key="artist.id">
-                    <img class="w-54 mb-2 border-t-4 rounded-full border-gray-200" :src="artist.profile_photo_path=null?'':artist.profile_photo_path">
-                    <span class="font-semibold  text-lg pl-2">{{artist.name}}</span>
+                    <img class="w-52 mb-6 border-t-4  rounded-full border-gray-200" :src="artist.profile_photo_path=null?'':artist.profile_photo_path">
+                    <span class="font-semibold  text-lg ">{{artist.name}}</span>
+                    <div class=" border-2 border-black mt-3 cursor-pointer py-2 rounded-lg">Follow</div>
                     
                 </div>
             </div>

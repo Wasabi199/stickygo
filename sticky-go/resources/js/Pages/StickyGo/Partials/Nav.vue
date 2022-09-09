@@ -70,6 +70,7 @@
                             py-1
                             text-xs
                             font-bold
+                           
                             leading-none
                             text-[#e93578]
                             transform
