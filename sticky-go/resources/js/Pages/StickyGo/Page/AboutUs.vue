@@ -74,6 +74,10 @@ export default {
     },
     components:{
         Navigation
-    }
+    },
+    props:{
+        Search:Object,
+        filters:Object,
+},
 }
 </script>

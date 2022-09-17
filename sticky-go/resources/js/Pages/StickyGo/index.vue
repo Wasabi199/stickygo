@@ -54,6 +54,8 @@
 <script>
     import Navigation from '../StickyGo/Partials/Nav.vue'
     import {Link} from '@inertiajs/inertia-vue3';
+    import {pickBy, throttle} from 'lodash';
+
 export default {
     setup() {
         
@@ -61,6 +63,9 @@ export default {
     props:{
         Stickers:Object,
         Artist:Object,
+        Search:Object,
+        filters:Object,
+        // filterFromSearch:String
     },
     components:{
         Navigation,
@@ -68,9 +73,10 @@ export default {
     },
     data(){
         return{
-            
+        
         }
-    }
+    },
+  
     
 }
 </script>

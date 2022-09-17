@@ -1,6 +1,6 @@
 <template>
   <div>
-    <div class="min-h-screen w-full bg-white">
+    <div class="min-h-screen h-fit w-full bg-white">
       <nav class="bg-white border-b border-gray-100">
         <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div class="flex justify-between h-16">
@@ -39,10 +39,20 @@
                   >
                     Contact
                   </NavLink>
-                  <input
-                    class="h-fit mt-3.5 p-1.5 border-[#e93578] border-2 w-56"
-                    placeholder="Search..."
-                  />
+                  <div class="relative ">
+                    <input v-model="form.search" class="h-fit mt-3.5 p-1.5 border-[#e93578] border-2 w-56" placeholder="Search..."/>
+                    <div v-if="form.search !=''" class="absolute bottom-0 top-14 left-0 w-72 rounded-md h-fit p-2 max-h-96 bg-white overflow-y-auto">
+                        <div class="flex mt-2 border-b-2 border-gray-600" v-for="result in this.$page.props.Search" v-bind:key="result.id">
+                            <div>
+                                <img class="w-24" :src="result.product_profile ==null?'':result.product_profile" alt="">
+                            </div>
+                            <div class="my-auto ml-5 font-semibold text-lg">
+                                {{result.title}}
+                            </div>
+                        </div>
+                    </div>
+                    
+                </div>
                   <Popover class="relative">
                     <PopoverButton>
                       <span class="inline-block cursor-pointer">
@@ -154,7 +164,7 @@
                     </PopoverPanel>
                   </Popover>
 
-                  <Popover class="relative">
+                  <Popover class="relative" v-if="$page.props.user == null">
                     <PopoverButton>
                       <span class="inline-block cursor-pointer">
                         <svg
@@ -170,6 +180,7 @@
                           />
                         </svg>
                       </span>
+
                     </PopoverButton>
 
                     <PopoverPanel class="absolute z-10 w-52 right-[-10rem]">
@@ -196,18 +207,50 @@
                     </PopoverPanel>
                   </Popover>
 
-                  <svg
-                    xmlns="http://www.w3.org/2000/svg"
-                    width="40"
-                    height="40"
-                    fill="currentColor"
-                    class="bi bi-cart3 text-[#e93578] mt-3.5"
-                    viewBox="0 0 16 16"
-                  >
-                    <path
-                      d="M0 1.5A.5.5 0 0 1 .5 1H2a.5.5 0 0 1 .485.379L2.89 3H14.5a.5.5 0 0 1 .49.598l-1 5a.5.5 0 0 1-.465.401l-9.397.472L4.415 11H13a.5.5 0 0 1 0 1H4a.5.5 0 0 1-.491-.408L2.01 3.607 1.61 2H.5a.5.5 0 0 1-.5-.5zM3.102 4l.84 4.479 9.144-.459L13.89 4H3.102zM5 12a2 2 0 1 0 0 4 2 2 0 0 0 0-4zm7 0a2 2 0 1 0 0 4 2 2 0 0 0 0-4zm-7 1a1 1 0 1 1 0 2 1 1 0 0 1 0-2zm7 0a1 1 0 1 1 0 2 1 1 0 0 1 0-2z"
-                    />
-                  </svg>
+                  <JetDropdown v-else align="right" width="48" >
+                      <template #trigger>
+                          <button  class="flex text-sm border-2 border-transparent rounded-full focus:outline-none focus:border-gray-300 transition">
+                              <img  class="w-10 py-3 rounded-full object-cover" :src="$page.props.user.profile_photo_path" />
+                          </button>
+                      </template>
+
+                      <template #content>
+                        
+                          <form @submit.prevent="logout">
+                              <JetDropdownLink as="button">
+                                  Log Out
+                              </JetDropdownLink>
+                          </form>
+                      </template>
+                  </JetDropdown>
+                  <Link v-if="$page.props.user == null" :href="route('login')">
+                    <svg
+                      xmlns="http://www.w3.org/2000/svg"
+                      width="40"
+                      height="40"
+                      fill="currentColor"
+                      class="bi bi-cart3 text-[#e93578] mt-3.5"
+                      viewBox="0 0 16 16"
+                    >
+                      <path
+                        d="M0 1.5A.5.5 0 0 1 .5 1H2a.5.5 0 0 1 .485.379L2.89 3H14.5a.5.5 0 0 1 .49.598l-1 5a.5.5 0 0 1-.465.401l-9.397.472L4.415 11H13a.5.5 0 0 1 0 1H4a.5.5 0 0 1-.491-.408L2.01 3.607 1.61 2H.5a.5.5 0 0 1-.5-.5zM3.102 4l.84 4.479 9.144-.459L13.89 4H3.102zM5 12a2 2 0 1 0 0 4 2 2 0 0 0 0-4zm7 0a2 2 0 1 0 0 4 2 2 0 0 0 0-4zm-7 1a1 1 0 1 1 0 2 1 1 0 0 1 0-2zm7 0a1 1 0 1 1 0 2 1 1 0 0 1 0-2z"
+                      />
+                    </svg>
+                </Link>
+                  <Link v-else :href="route('cart')">
+                    <svg
+                      xmlns="http://www.w3.org/2000/svg"
+                      width="40"
+                      height="40"
+                      fill="currentColor"
+                      class="bi bi-cart3 text-[#e93578] mt-3.5"
+                      viewBox="0 0 16 16"
+                    >
+                      <path
+                        d="M0 1.5A.5.5 0 0 1 .5 1H2a.5.5 0 0 1 .485.379L2.89 3H14.5a.5.5 0 0 1 .49.598l-1 5a.5.5 0 0 1-.465.401l-9.397.472L4.415 11H13a.5.5 0 0 1 0 1H4a.5.5 0 0 1-.491-.408L2.01 3.607 1.61 2H.5a.5.5 0 0 1-.5-.5zM3.102 4l.84 4.479 9.144-.459L13.89 4H3.102zM5 12a2 2 0 1 0 0 4 2 2 0 0 0 0-4zm7 0a2 2 0 1 0 0 4 2 2 0 0 0 0-4zm-7 1a1 1 0 1 1 0 2 1 1 0 0 1 0-2zm7 0a1 1 0 1 1 0 2 1 1 0 0 1 0-2z"
+                      />
+                    </svg>
+                </Link>
                 </div>
               </div>
             </div>
@@ -291,12 +334,15 @@
   </div>
 </template>
 <script>
-import { Head, Link } from "@inertiajs/inertia-vue3";
-import ApplicationMark from "@/Components/ApplicationMark.vue";
-import NavLink from "@/Components/NavLink.vue";
-import { Popover, PopoverButton, PopoverPanel } from "@headlessui/vue";
-import { Menu, MenuButton, MenuItems, MenuItem } from "@headlessui/vue";
-
+  import { Head, Link } from "@inertiajs/inertia-vue3";
+  import ApplicationMark from "@/Components/ApplicationMark.vue";
+  import NavLink from "@/Components/NavLink.vue";
+  import { Popover, PopoverButton, PopoverPanel } from "@headlessui/vue";
+  import { Menu, MenuButton, MenuItems, MenuItem } from "@headlessui/vue";
+  import JetDropdown from '@/Components/Dropdown.vue'
+  import {pickBy, throttle} from 'lodash';
+  import JetDropdownLink from '@/Components/DropdownLink.vue'
+import route from "../../../../../vendor/tightenco/ziggy/src/js";
 export default {
   setup() {},
   components: {
@@ -311,16 +357,34 @@ export default {
     MenuButton,
     MenuItems,
     MenuItem,
+    JetDropdown,
+    JetDropdownLink,
+
   },
-  data() {
-    return {
-      links: [
-        { href: "/account-settings", label: "Account settings" },
-        { href: "/support", label: "Support" },
-        { href: "/license", label: "License" },
-        { href: "/sign-out", label: "Sign out" },
-      ],
-    };
-  },
+  data(){
+    return{
+      form:{
+        search: this.$page.props.filters.search = ''
+      }
+  }
+},
+  watch: {
+        form: {
+            deep: true,
+            handler:
+                throttle(
+                    function () {
+                        this.$inertia.get(route(route().current()), pickBy(this.form), {preserveState: true, preserveScroll: true,
+                        })
+                    },
+                    600
+                ),
+        },
+    },
+  methods:{
+    logout() {
+          this.$inertia.post(route('logout'));
+        },
+  }
 };
 </script>

@@ -117,10 +117,14 @@
                     </select>
                 </div>
                 <div class="grid grid-cols-4 mt-10 gap-10">
-                    <div class="h-fit w-fit" v-for="sticker in Stickers.data" v-bind:key="sticker.id">
-                        <img :src="sticker.product_profile=null?'':sticker.product_profile"/>
-                        <span class="font-semibold  text-lg pl-2">{{sticker.title}}</span>
-                    <h5 class="text-blue-300 pl-2">₱ {{sticker.price.toLocaleString('en-US')}}.00</h5>
+                    <div v-for="sticker in Stickers.data" v-bind:key="sticker.id">
+                        <Link :href="route('addToCart',sticker.id)">
+                            <div class="h-fit w-fit">
+                                <img :src="sticker.product_profile=null?'':sticker.product_profile"/>
+                                <span class="font-semibold  text-lg pl-2">{{sticker.title}}</span>
+                            <h5 class="text-blue-300 pl-2">₱ {{sticker.price.toLocaleString('en-US')}}.00</h5>
+                            </div>
+                        </Link>    
                     </div>
                 </div>
                 <Pagination class="mt-10 text-2xl" :links="Stickers.links"></Pagination>
@@ -132,17 +136,21 @@
 <script>
     import Navigation from '../Partials/Nav.vue'
     import Pagination from '../Partials/Pagination.vue'
+    import { Link } from "@inertiajs/inertia-vue3";
 export default {
     setup() {
         
     },
     props:{
-        Stickers:Object
+        Stickers:Object,
+        Search:Object,
+        filters:Object,
     },
     
     components:{
         Navigation,
-        Pagination
+        Pagination,
+        Link
     }
 }
 </script>

@@ -8,6 +8,11 @@ import InputLabel from '@/Components/InputLabel.vue';
 import PrimaryButton from '@/Components/PrimaryButton.vue';
 import TextInput from '@/Components/TextInput.vue';
 
+
+defineProps({
+    Search:Object,
+    filters:Object,
+});
 const form = useForm({
     name: '',
     email: '',
@@ -22,7 +27,51 @@ const submit = () => {
     });
 };
 </script>
-
+<!-- <script>
+import { Head, Link, useForm } from '@inertiajs/inertia-vue3';
+import AuthenticationCard from '@/Components/AuthenticationCard.vue';
+import AuthenticationCardLogo from '@/Components/AuthenticationCardLogo.vue';
+import Checkbox from '@/Components/Checkbox.vue';
+import InputError from '@/Components/InputError.vue';
+import InputLabel from '@/Components/InputLabel.vue';
+import PrimaryButton from '@/Components/PrimaryButton.vue';
+import TextInput from '@/Components/TextInput.vue';
+export default {
+    setup() {
+        
+    },
+    components:{
+        Head,
+        Link,
+        useForm,
+        AuthenticationCard,
+        AuthenticationCardLogo,
+        Checkbox,
+        InputError,
+        InputLabel,
+        PrimaryButton,
+        TextInput
+    },
+    data(){
+        return{
+            form:this.$inertia.form({
+            name: '',
+            email: '',
+            password: '',
+            password_confirmation: '',
+            terms: false,
+            })
+        }
+    },
+    methods:{
+        submit() {
+        form.post(route('register'), {
+        onFinish: () => form.reset('password', 'password_confirmation'),
+    })
+    },
+    }
+}
+</script>> -->
 <template>
     <Head title="Register" />
 
@@ -30,13 +79,13 @@ const submit = () => {
         <template #logo>
             <AuthenticationCardLogo />
         </template>
-
+        <div class="text-4xl mt-20 text-center mb-20 font-semibold">Sign Up to StickyGo</div>
         <form @submit.prevent="submit">
             <div>
-                <InputLabel for="name" value="Name" />
+                <InputLabel for="email" value="Email" />
                 <TextInput
                     id="name"
-                    v-model="form.name"
+                    v-model="form.email"
                     type="text"
                     class="mt-1 block w-full"
                     required
@@ -47,10 +96,10 @@ const submit = () => {
             </div>
 
             <div class="mt-4">
-                <InputLabel for="email" value="Email" />
+                <InputLabel for="name" value="Name" />
                 <TextInput
                     id="email"
-                    v-model="form.email"
+                    v-model="form.name"
                     type="email"
                     class="mt-1 block w-full"
                     required
@@ -96,15 +145,11 @@ const submit = () => {
                     <InputError class="mt-2" :message="form.errors.terms" />
                 </InputLabel>
             </div>
-
-            <div class="flex items-center justify-end mt-4">
-                <Link :href="route('login')" class="underline text-sm text-gray-600 hover:text-gray-900">
-                    Already registered?
-                </Link>
-
-                <PrimaryButton class="ml-4 bg-[#e93578] text-[#fcd062] hover:bg-[#fcd062] hover:text-[#e93578] " :class="{ 'opacity-25': form.processing }" :disabled="form.processing">
+            <PrimaryButton class="mt-5 w-full justify-center bg-[#e93578] text-white " :class="{ 'opacity-25': form.processing }" :disabled="form.processing">
                     Register
                 </PrimaryButton>
+            <div class="flex justify-center mt-4">
+                <p>Already have an Account? <Link :href="route('login')"><span class="font-bold cursor-pointer">Login</span></Link></p>
             </div>
         </form>
     </AuthenticationCard>

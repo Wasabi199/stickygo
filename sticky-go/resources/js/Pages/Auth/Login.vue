@@ -11,6 +11,8 @@ import TextInput from '@/Components/TextInput.vue';
 defineProps({
     canResetPassword: Boolean,
     status: String,
+    Search:Object,
+    filters:Object,
 });
 
 const form = useForm({
@@ -29,6 +31,7 @@ const submit = () => {
 };
 </script>
 
+
 <template>
     <Head title="Log in" />
 
@@ -36,7 +39,7 @@ const submit = () => {
         <template #logo>
             <AuthenticationCardLogo />
         </template>
-
+        <div class="text-4xl mt-20 text-center mb-20 font-semibold">Welcome back!</div>
         <div v-if="status" class="mb-4 font-medium text-sm text-green-600">
             {{ status }}
         </div>
@@ -68,21 +71,29 @@ const submit = () => {
                 <InputError class="mt-2" :message="form.errors.password" />
             </div>
 
-            <div class="block mt-4">
+            <!-- <div class="block mt-4">
                 <label class="flex items-center">
                     <Checkbox v-model:checked="form.remember" name="remember" />
                     <span class="ml-2 text-sm text-gray-600">Remember me</span>
                 </label>
-            </div>
+            </div> -->
 
-            <div class="flex items-center justify-end mt-4">
-                <Link v-if="canResetPassword" :href="route('password.request')" class="underline text-sm text-gray-600 hover:text-gray-900">
-                    Forgot your password?
-                </Link>
+            <div class=" mt-4">
+                <div class="text-end">
+                    <Link v-if="canResetPassword" :href="route('password.request')" class="underline text-sm text-gray-600 hover:text-gray-900">
+                        Forgot your password?
+                    </Link>
+                </div>
+                
 
-                <PrimaryButton class="ml-4 bg-[#e93578] text-[#fcd062] hover:bg-[#fcd062] hover:text-[#e93578] "  :class="{ 'opacity-25': form.processing }" :disabled="form.processing">
+                <PrimaryButton class=" h-12 w-full bg-[#e93578]  text-white justify-center text-lg"  :class="{ 'opacity-25': form.processing }" :disabled="form.processing">
                     Log in
                 </PrimaryButton>
+                <Link :href="route('register')">
+                    <div class="mt-2 w-full py-3 h-12 bg-[#fcd062] text-white text-center text-lg"  :class="{ 'opacity-25': form.processing }" :disabled="form.processing">
+                        Sign Up
+                    </div>
+                </Link>
             </div>
         </form>
     </AuthenticationCard>
