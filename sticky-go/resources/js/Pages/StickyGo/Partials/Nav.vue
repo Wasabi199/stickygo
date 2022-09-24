@@ -215,7 +215,12 @@
                       </template>
 
                       <template #content>
-                        
+                          <DropdownLink :href="route('history')">
+                                  History
+                          </DropdownLink>
+                          <DropdownLink :href="route('help')">
+                                  Help
+                          </DropdownLink>
                           <form @submit.prevent="logout">
                               <JetDropdownLink as="button">
                                   Log Out
@@ -343,6 +348,8 @@
   import {pickBy, throttle} from 'lodash';
   import JetDropdownLink from '@/Components/DropdownLink.vue'
 import route from "../../../../../vendor/tightenco/ziggy/src/js";
+import DropdownLink from '@/Components/DropdownLink.vue';
+// import { Router } from '@inertiajs/inertia/types/router';
 export default {
   setup() {},
   components: {
@@ -359,13 +366,20 @@ export default {
     MenuItem,
     JetDropdown,
     JetDropdownLink,
+    DropdownLink
 
+  },
+  props:{
+        Search:Object,
+        filters:Object,
+        router:Object,
   },
   data(){
     return{
       form:{
         search: this.$page.props.filters.search = ''
-      }
+      },
+      
   }
 },
   watch: {

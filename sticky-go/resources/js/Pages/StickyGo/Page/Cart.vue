@@ -41,12 +41,13 @@
                 </div>
             </div>
             
-            <div class="mt-10 text-center bg-blue-400 text-lg text-white py-5">PROCEED TO CHECKOUT</div>
+            <div @click="checkout()" class=" cursor-pointer mt-10 text-center bg-blue-400 text-lg text-white py-5">PROCEED TO CHECKOUT</div>
         </div>
     </Navigation>
 </template>
 <script>
     import Navigation from "../Partials/Nav.vue";
+    import { Link } from "@inertiajs/inertia-vue3";
 export default {
     setup() {
         
@@ -58,7 +59,9 @@ export default {
         filters:Object,
     },
     components:{
-        Navigation
+        Navigation,
+        Link
+
     },
     data(){
         return{
@@ -76,6 +79,10 @@ export default {
         }
     },
     methods:{
+        checkout(){
+            console.log('checkout')
+            this.$inertia.get(route('checkout'));
+        },
         btnAdd(cart){
             this.cartToUpdate.id = cart.id
             this.cartToUpdate.quantity = cart.quantity + 1

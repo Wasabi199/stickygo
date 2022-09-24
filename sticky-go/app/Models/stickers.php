@@ -11,7 +11,9 @@ class stickers extends Model
     protected $fillable =[
         'title',
         'price',
-        'product_profile',  
+        
+        'product_profile',
+        'description'  
     ];
     public function user(){
         return $this->belongsTo(User::class);
@@ -19,6 +21,9 @@ class stickers extends Model
     
     public function otherImages(){
         return $this->hasMany(otherImages::class);
+    }
+    public function comment(){
+        return $this->hasMany(comment::class, 'sticker_id');
     }
 
 

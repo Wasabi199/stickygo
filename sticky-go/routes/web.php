@@ -5,6 +5,7 @@ use App\Http\Controllers\StickersController;
 use Illuminate\Foundation\Application;
 use Illuminate\Support\Facades\Route;
 use Inertia\Inertia;
+use Termwind\Components\Raw;
 
 /*
 |--------------------------------------------------------------------------
@@ -16,17 +17,24 @@ use Inertia\Inertia;
 | contains the "web" middleware group. Now create something great!
 |
 */
-
+// Routing Pages
 Route::get('/',[IndexController::class,'index'])->name('index');
 Route::get('/dashboard',[IndexController::class,'index'])->name('dashboard');
 Route::get('/AboutUs',[IndexController::class,'aboutUs'])->name('aboutUs');
 Route::get('/Shop',[IndexController::class,'shop'])->name('shop');
 Route::get('/Contact',[IndexController::class,'contact'])->name('contact');
-// Route::get('/Login',[IndexController::class,'login'])->name('login');
-// Route::get('/Register',[IndexController::class,'register'])->name('register');
 Route::get('/Cart',[IndexController::class,'cart'])->name('cart');
-Route::get('/addToCart/{id}',[StickersController::class,'addToCart'])->name('addToCart');
+Route::get('/Shop/Product/{id}',[IndexController::class,'productProfile'])->name('product');
+Route::get('/History',[IndexController::class,'history'])->name('history');
+Route::get('/Help',[IndexController::class,'help'])->name('help');
 
+Route::get('/Checkout',[StickersController::class,'checkout'])->name('checkout');
+
+
+Route::post('/addToCart',[StickersController::class,'addToCart'])->name('addToCart');
+
+
+// Routing Functions
 Route::post('/addToCart/Update',[StickersController::class,'btnUpdateQuantity'])->name('btnUpdateQuantity');
 Route::delete('/addToCart/Delete',[StickersController::class,'cartDeleteItem'])->name('cartItemDelete');
 

@@ -118,7 +118,7 @@
                 </div>
                 <div class="grid grid-cols-4 mt-10 gap-10">
                     <div v-for="sticker in Stickers.data" v-bind:key="sticker.id">
-                        <Link :href="route('addToCart',sticker.id)">
+                        <Link :href="route('product',sticker.id)">
                             <div class="h-fit w-fit">
                                 <img :src="sticker.product_profile=null?'':sticker.product_profile"/>
                                 <span class="font-semibold  text-lg pl-2">{{sticker.title}}</span>
@@ -143,8 +143,9 @@ export default {
     },
     props:{
         Stickers:Object,
-        Search:Object,
-        filters:Object,
+        
+        // Search:Object,
+        // filters:Object,
     },
     
     components:{

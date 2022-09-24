@@ -19,6 +19,8 @@ return new class extends Migration
             $table->string('title');
             $table->bigInteger('sticker_id');
             $table->double('price');
+            $table->string('type');
+            $table->string('size');
             $table->string('product_profile');
             $table->integer('quantity')->default(1);
             $table->timestamps();

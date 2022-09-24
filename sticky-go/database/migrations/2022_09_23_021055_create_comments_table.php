@@ -13,13 +13,11 @@ return new class extends Migration
      */
     public function up()
     {
-        Schema::create('stickers', function (Blueprint $table) {
+        Schema::create('comments', function (Blueprint $table) {
             $table->id();
             $table->foreignId('user_id')->references('id')->on('users');
-            $table->string('title');
-            $table->double('price');
-            $table->string('product_profile');
-            $table->longText('description');
+            $table->foreignId('sticker_id')->nullable()->references('id')->on('stickers');
+            $table->longText('Comment');
             $table->timestamps();
         });
     }
@@ -31,6 +29,6 @@ return new class extends Migration
      */
     public function down()
     {
-        Schema::dropIfExists('stickers');
+        Schema::dropIfExists('comments');
     }
 };

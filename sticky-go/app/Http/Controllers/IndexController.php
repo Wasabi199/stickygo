@@ -2,11 +2,13 @@
 
 namespace App\Http\Controllers;
 
-use App\Models\{cart, stickers, User};
+use App\Models\{cart, stickers, User, comment};
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
 use Inertia\Inertia;
 use Illuminate\Support\Facades\Request as QueryRequest;
+use Illuminate\Support\Facades\Route;
+use Illuminate\Support\Facades\URL;
 
 class IndexController extends Controller
 {
@@ -36,10 +38,12 @@ class IndexController extends Controller
         $searchSticker = stickers::filter($query::only('search'))->get();
         $filters = $query::all('search');
         $stickers = stickers::with('otherImages')->limit(20)->paginate(20);
+      
         return Inertia::render('StickyGo/Page/Shop',[
             'Stickers'=>$stickers,
             'Search'=>$searchSticker,
             'filters'=>$filters,
+   
         ]);
     }
     public function contact(QueryRequest $query){
@@ -68,5 +72,42 @@ class IndexController extends Controller
             'Search'=>$searchSticker,
             'filters'=>$filters,
         ]);
+    }
+    public function productProfile($id){
+        $searchSticker = stickers::filter(QueryRequest::only('search'))->get();
+        $filters = QueryRequest::all('search');
+        $product = stickers::with('user')->findOrFail($id);
+        $comments = comment::with('user')->where('sticker_id',$product->id)->limit(3)->paginate(3);
+        $stickers = stickers::limit(5)->get();
+        return Inertia::render('StickyGo/Page/ProductProfile',[
+            'Search'=>$searchSticker,
+            'filters'=>$filters,
+            'Product'=>$product,
+            'Comment'=>$comments,
+            'Stickers'=>$stickers,
+        ]);
+    }
+
+    public function history(){
+        $searchSticker = stickers::filter(QueryRequest::only('search'))->get();
+        $filters = QueryRequest::all('search');
+        $history = User::with('history')->find(auth()->id());
+        
+        return Inertia::render('StickyGo/Page/History',[
+            'Search'=>$searchSticker,
+            'filters'=>$filters,
+            'History'=>$history
+        ]);
+    }
+
+    public function help(){
+        $searchSticker = stickers::filter(QueryRequest::only('search'))->get();
+        $filters = QueryRequest::all('search');
+
+        return Inertia::render('StickyGo/Page/Help',[
+            'Search'=>$searchSticker,
+            'filters'=>$filters,
+        ]);
+
     }
 }

@@ -13,13 +13,18 @@ return new class extends Migration
      */
     public function up()
     {
-        Schema::create('stickers', function (Blueprint $table) {
+        Schema::create('histories', function (Blueprint $table) {
             $table->id();
             $table->foreignId('user_id')->references('id')->on('users');
             $table->string('title');
+            $table->bigInteger('sticker_id');
             $table->double('price');
+            $table->double('total');
+            $table->string('type');
+            $table->string('size');
+            $table->string('status');
             $table->string('product_profile');
-            $table->longText('description');
+            $table->integer('quantity')->default(1);
             $table->timestamps();
         });
     }
@@ -31,6 +36,6 @@ return new class extends Migration
      */
     public function down()
     {
-        Schema::dropIfExists('stickers');
+        Schema::dropIfExists('histories');
     }
 };
