@@ -2,7 +2,7 @@
 
 namespace App\Http\Controllers;
 
-use App\Models\{cart, stickers, User, comment};
+use App\Models\{cart, stickers, User, comment, personalInformation};
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
 use Inertia\Inertia;
@@ -108,6 +108,31 @@ class IndexController extends Controller
             'Search'=>$searchSticker,
             'filters'=>$filters,
         ]);
+    }
 
+    public function checkOut(){
+        $searchSticker = stickers::filter(QueryRequest::only('search'))->get();
+        $filters = QueryRequest::all('search');
+
+        $cart = cart::where('user_id',Auth::user()->id)->get();
+        $info = personalInformation::where('user_id',Auth::user()->id)->get()->first();
+        
+        return Inertia::render('StickyGo/Page/CheckOut',[
+            'Search'=>$searchSticker,
+            'filters'=>$filters,
+            'Cart'=>$cart,
+            'Info'=>$info
+        ]);
+    
+    }
+
+    public function thankyou(){
+        $searchSticker = stickers::filter(QueryRequest::only('search'))->get();
+        $filters = QueryRequest::all('search');
+        return Inertia::render('StickyGo/Page/ThankYou',[
+            'Search'=>$searchSticker,
+            'filters'=>$filters,
+            
+  ]);
     }
 }

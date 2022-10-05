@@ -27,10 +27,10 @@ Route::get('/Cart',[IndexController::class,'cart'])->name('cart');
 Route::get('/Shop/Product/{id}',[IndexController::class,'productProfile'])->name('product');
 Route::get('/History',[IndexController::class,'history'])->name('history');
 Route::get('/Help',[IndexController::class,'help'])->name('help');
+Route::get('/ProceedToCheckOut',[IndexController::class,'checkOut'])->name('checkOut');
+Route::get('/ThankYou',[IndexController::class,'thankyou'])->name('thankyou');
 
 Route::get('/Checkout',[StickersController::class,'checkout'])->name('checkout');
-
-
 Route::post('/addToCart',[StickersController::class,'addToCart'])->name('addToCart');
 
 

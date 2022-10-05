@@ -67,7 +67,7 @@ class StickersController extends Controller
                 'sticker_id'=>$cartItem->sticker_id,
             ]);
             $cartItem->delete();
-            return Redirect::route('history');
+            return Redirect::route('thankyou');
         }
         
 

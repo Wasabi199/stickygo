@@ -48,6 +48,7 @@
 <script>
     import Navigation from "../Partials/Nav.vue";
     import { Link } from "@inertiajs/inertia-vue3";
+import route from '../../../../../vendor/tightenco/ziggy/src/js';
 export default {
     setup() {
         
@@ -80,8 +81,9 @@ export default {
     },
     methods:{
         checkout(){
-            console.log('checkout')
-            this.$inertia.get(route('checkout'));
+            // console.log('checkout')
+            // this.$inertia.get(route('checkout'));
+            this.$inertia.get(route('checkOut'));
         },
         btnAdd(cart){
             this.cartToUpdate.id = cart.id

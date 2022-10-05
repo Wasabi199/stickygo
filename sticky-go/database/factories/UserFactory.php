@@ -2,8 +2,10 @@
 
 namespace Database\Factories;
 
+use App\Models\personalInformation;
 use App\Models\Team;
 use App\Models\User;
+use App\Models\UserInformation;
 use Illuminate\Database\Eloquent\Factories\Factory;
 use Illuminate\Support\Str;
 use Laravel\Jetstream\Features;
@@ -34,6 +36,17 @@ class UserFactory extends Factory
         ];
     }
 
+    // public function configure(){
+    //     return $this->afterCreating(
+    //         function(User $user){
+    //         $user_information = personalInformation::factory()->create();
+    //         $user->name = $user_information->name . ' ' . $user_information->lastname;
+    //         $user->personal->create($user_information->toArray());
+
+    //         $user->save();
+    //     });
+    // }
+
     /**
      * Indicate that the model's email address should be unverified.
      *
@@ -46,6 +59,8 @@ class UserFactory extends Factory
                 'email_verified_at' => null,
             ];
         });
+
+
     }
 
     /**
