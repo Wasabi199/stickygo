@@ -1,7 +1,7 @@
 <template>
   <div>
-    <div class="min-h-screen h-fit w-full bg-white">
-      <nav class="bg-white border-b border-gray-100">
+    <div class=" h-fit w-full bg-white">
+      <nav class="sticky top-0 bg-white border-b border-gray-100">
         <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div class="flex justify-between h-16">
             <div class="flex justify-between h-16">
@@ -13,55 +13,96 @@
                   </Link>
                 </div>
                 <!-- Navigation Links -->
-                <div class="hidden space-x-8 sm:-my-px sm:ml-10 sm:flex">
+                <div class="hidden space-x-14 sm:-my-px sm:ml-10 sm:flex">
                   <NavLink
+                    class="text-md"
                     :href="route('index')"
                     :active="route().current('index')"
                   >
                     Home
                   </NavLink>
                   <NavLink
+                    class="text-md"
                     :href="route('shop')"
                     :active="route().current('shop')"
                   >
                     Shop
                   </NavLink>
                   <NavLink
-                    class="whitespace-nowrap"
+                    class="whitespace-nowrap text-md"
                     :href="route('aboutUs')"
                     :active="route().current('aboutUs')"
                   >
                     About Us
                   </NavLink>
                   <NavLink
+                    class="text-md"
                     :href="route('contact')"
                     :active="route().current('contact')"
                   >
                     Contact
                   </NavLink>
-                  <div class="relative ">
-                    <input v-model="form.search" class="h-fit mt-3.5 p-1.5 border-[#e93578] border-2 w-56" placeholder="Search..."/>
-                    <div v-if="form.search !=''" class="absolute bottom-0 top-14 left-0 w-72 rounded-md h-fit p-2 max-h-96 bg-white overflow-y-auto">
-                        <div class="flex mt-2 border-b-2 border-gray-600" v-for="result in this.$page.props.Search" v-bind:key="result.id">
-                            <div>
-                                <img class="w-24" :src="result.product_profile ==null?'':result.product_profile" alt="">
-                            </div>
-                            <div class="my-auto ml-5 font-semibold text-lg">
-                                {{result.title}}
-                            </div>
+                  <div class="relative">
+                    <input
+                      v-model="form.search"
+                      class="
+                        h-fit
+                        my-3.5
+                        p-1.5
+                        border-[#e93578] border-2
+                        w-72
+                        rounded-md
+                        text-sm
+                      "
+                      placeholder="Search..."
+                    />
+                    <div
+                      v-if="form.search != ''"
+                      class="
+                        absolute
+                        bottom-0
+                        top-14
+                        left-0
+                        w-72
+                        rounded-md
+                        h-fit
+                        p-2
+                        max-h-96
+                        bg-white
+                        overflow-y-auto
+                      "
+                    >
+                      <div
+                        class="flex mt-2 border-b-2 border-gray-600"
+                        v-for="result in this.$page.props.Search"
+                        v-bind:key="result.id"
+                      >
+                        <div>
+                          <img
+                            class="w-24"
+                            :src="
+                              result.product_profile == null
+                                ? ''
+                                : result.product_profile
+                            "
+                            alt=""
+                          />
                         </div>
+                        <div class="my-auto ml-5 font-semibold text-lg">
+                          {{ result.title }}
+                        </div>
+                      </div>
                     </div>
-                    
-                </div>
+                  </div>
                   <Popover class="relative">
                     <PopoverButton>
                       <span class="inline-block cursor-pointer">
                         <svg
                           xmlns="http://www.w3.org/2000/svg"
-                          width="35"
-                          height="35"
+                          width="25"
+                          height="25"
                           fill="currentColor"
-                          class="bi bi-bell text-[#e93578] h-fit mt-3.5"
+                          class="bi bi-bell text-[#e93578] h-fit my-5"
                           viewBox="0 0 16 16"
                         >
                           <path
@@ -80,7 +121,6 @@
                             py-1
                             text-xs
                             font-bold
-                           
                             leading-none
                             text-[#e93578]
                             transform
@@ -95,13 +135,16 @@
                       </span>
                     </PopoverButton>
 
-                    <PopoverPanel class="absolute z-10 w-96 right-[-10rem]">
+                    <PopoverPanel class="absolute z-10 w-96 right-[0rem] ">
                       <div
                         class="
                           flex flex-col
                           bg-white/75
                           backdrop-blur-lg
                           rounded-xl
+                          border-solid
+                          border
+                          border-gray-100
                           shadow-xl
                           py-5
                           px-3
@@ -109,7 +152,7 @@
                       >
                         <div class="flex justify-between h-6">
                           <span class="mb-5">Notifications</span>
-                          <div
+                          <div 
                             class="
                               flex
                               items-center
@@ -169,8 +212,8 @@
                       <span class="inline-block cursor-pointer">
                         <svg
                           xmlns="http://www.w3.org/2000/svg"
-                          width="40"
-                          height="40"
+                          width="30"
+                          height="30"
                           fill="currentColor"
                           class="bi bi-person text-[#e93578] mt-3.5"
                           viewBox="0 0 16 16"
@@ -180,10 +223,9 @@
                           />
                         </svg>
                       </span>
-
                     </PopoverButton>
 
-                    <PopoverPanel class="absolute z-10 w-52 right-[-10rem]">
+                    <PopoverPanel class="absolute z-10 w-52 right-[-10rem]" >
                       <div
                         class="
                           flex flex-col
@@ -195,44 +237,74 @@
                           px-3
                         "
                       >
-                        <div class="h-fit  text-lg font-semibold cursor-pointer ">
+                        <div class="h-fit text-lg font-semibold cursor-pointer">
                           <Link :href="route('login')">
-                            <div  class="w-full h-full p-2 rounded-lg hover:bg-[#e93578] hover:text-[#fcd062]">Log In</div>
+                            <div
+                              class="
+                                w-full
+                                h-full
+                                p-2
+                                rounded-lg
+                                hover:bg-[#e93578] hover:text-[#fcd062]
+                              "
+                            >
+                              Log In
+                            </div>
                           </Link>
                           <Link :href="route('register')">
-                            <div class="w-full h-full p-2 rounded-lg hover:bg-[#e93578] hover:text-[#fcd062]">Sign Up</div>
+                            <div
+                              class="
+                                w-full
+                                h-full
+                                p-2
+                                rounded-lg
+                                hover:bg-[#e93578] hover:text-[#fcd062]
+                              "
+                            >
+                              Sign Up
+                            </div>
                           </Link>
-                          </div>
+                        </div>
                       </div>
                     </PopoverPanel>
                   </Popover>
 
-                  <JetDropdown v-else align="right" width="48" >
-                      <template #trigger>
-                          <button  class="flex text-sm border-2 border-transparent rounded-full focus:outline-none focus:border-gray-300 transition">
-                              <img  class="w-10 py-3 rounded-full object-cover" :src="$page.props.user.profile_photo_path" />
-                          </button>
-                      </template>
+                  <JetDropdown v-else align="right" width="48">
+                    <template #trigger>
+                      <button
+                        class="
+                          flex
+                          text-sm
+                          border-2 border-transparent
+                          rounded-full
+                          focus:outline-none focus:border-gray-300
+                          transition
+                        "
+                      >
+                        <img
+                          class="w-10 py-3 rounded-full object-cover"
+                          :src="$page.props.user.profile_photo_path"
+                        />
+                      </button>
+                    </template>
 
-                      <template #content>
-                          <DropdownLink :href="route('history')">
-                                  History
-                          </DropdownLink>
-                          <DropdownLink :href="route('help')">
-                                  Help
-                          </DropdownLink>
-                          <form @submit.prevent="logout">
-                              <JetDropdownLink as="button">
-                                  Log Out
-                              </JetDropdownLink>
-                          </form>
-                      </template>
+                    <template #content>
+                      <DropdownLink :href="route('history')">
+                        History
+                      </DropdownLink>
+                      <DropdownLink :href="route('help')"> Help </DropdownLink>
+                      <form @submit.prevent="logout">
+                        <JetDropdownLink as="button"> Log Out </JetDropdownLink>
+                      </form>
+                    </template>
                   </JetDropdown>
+
+
                   <Link v-if="$page.props.user == null" :href="route('login')">
                     <svg
                       xmlns="http://www.w3.org/2000/svg"
-                      width="40"
-                      height="40"
+                      width="30"
+                      height="30"
                       fill="currentColor"
                       class="bi bi-cart3 text-[#e93578] mt-3.5"
                       viewBox="0 0 16 16"
@@ -241,21 +313,21 @@
                         d="M0 1.5A.5.5 0 0 1 .5 1H2a.5.5 0 0 1 .485.379L2.89 3H14.5a.5.5 0 0 1 .49.598l-1 5a.5.5 0 0 1-.465.401l-9.397.472L4.415 11H13a.5.5 0 0 1 0 1H4a.5.5 0 0 1-.491-.408L2.01 3.607 1.61 2H.5a.5.5 0 0 1-.5-.5zM3.102 4l.84 4.479 9.144-.459L13.89 4H3.102zM5 12a2 2 0 1 0 0 4 2 2 0 0 0 0-4zm7 0a2 2 0 1 0 0 4 2 2 0 0 0 0-4zm-7 1a1 1 0 1 1 0 2 1 1 0 0 1 0-2zm7 0a1 1 0 1 1 0 2 1 1 0 0 1 0-2z"
                       />
                     </svg>
-                </Link>
+                  </Link>
                   <Link v-else :href="route('cart')">
                     <svg
                       xmlns="http://www.w3.org/2000/svg"
-                      width="40"
-                      height="40"
+                      width="25"
+                      height="25"
                       fill="currentColor"
-                      class="bi bi-cart3 text-[#e93578] mt-3.5"
+                      class="bi bi-cart3 text-[#e93578] my-5"
                       viewBox="0 0 16 16"
                     >
                       <path
                         d="M0 1.5A.5.5 0 0 1 .5 1H2a.5.5 0 0 1 .485.379L2.89 3H14.5a.5.5 0 0 1 .49.598l-1 5a.5.5 0 0 1-.465.401l-9.397.472L4.415 11H13a.5.5 0 0 1 0 1H4a.5.5 0 0 1-.491-.408L2.01 3.607 1.61 2H.5a.5.5 0 0 1-.5-.5zM3.102 4l.84 4.479 9.144-.459L13.89 4H3.102zM5 12a2 2 0 1 0 0 4 2 2 0 0 0 0-4zm7 0a2 2 0 1 0 0 4 2 2 0 0 0 0-4zm-7 1a1 1 0 1 1 0 2 1 1 0 0 1 0-2zm7 0a1 1 0 1 1 0 2 1 1 0 0 1 0-2z"
                       />
                     </svg>
-                </Link>
+                  </Link>
                 </div>
               </div>
             </div>
@@ -339,16 +411,16 @@
   </div>
 </template>
 <script>
-  import { Head, Link } from "@inertiajs/inertia-vue3";
-  import ApplicationMark from "@/Components/ApplicationMark.vue";
-  import NavLink from "@/Components/NavLink.vue";
-  import { Popover, PopoverButton, PopoverPanel } from "@headlessui/vue";
-  import { Menu, MenuButton, MenuItems, MenuItem } from "@headlessui/vue";
-  import JetDropdown from '@/Components/Dropdown.vue'
-  import {pickBy, throttle} from 'lodash';
-  import JetDropdownLink from '@/Components/DropdownLink.vue'
+import { Head, Link } from "@inertiajs/inertia-vue3";
+import ApplicationMark from "@/Components/ApplicationMark.vue";
+import NavLink from "@/Components/NavLink.vue";
+import { Popover, PopoverButton, PopoverPanel } from "@headlessui/vue";
+import { Menu, MenuButton, MenuItems, MenuItem } from "@headlessui/vue";
+import JetDropdown from "@/Components/Dropdown.vue";
+import { pickBy, throttle } from "lodash";
+import JetDropdownLink from "@/Components/DropdownLink.vue";
 import route from "../../../../../vendor/tightenco/ziggy/src/js";
-import DropdownLink from '@/Components/DropdownLink.vue';
+import DropdownLink from "@/Components/DropdownLink.vue";
 // import { Router } from '@inertiajs/inertia/types/router';
 export default {
   setup() {},
@@ -366,39 +438,35 @@ export default {
     MenuItem,
     JetDropdown,
     JetDropdownLink,
-    DropdownLink
-
+    DropdownLink,
   },
-  props:{
-        Search:Object,
-        filters:Object,
-        router:Object,
+  props: {
+    Search: Object,
+    filters: Object,
+    router: Object,
   },
-  data(){
-    return{
-      form:{
-        search: this.$page.props.filters.search = ''
+  data() {
+    return {
+      form: {
+        search: (this.$page.props.filters.search = ""),
       },
-      
-  }
-},
+    };
+  },
   watch: {
-        form: {
-            deep: true,
-            handler:
-                throttle(
-                    function () {
-                        this.$inertia.get(route(route().current()), pickBy(this.form), {preserveState: true, preserveScroll: true,
-                        })
-                    },
-                    600
-                ),
-        },
+    form: {
+      deep: true,
+      handler: throttle(function () {
+        this.$inertia.get(route(route().current()), pickBy(this.form), {
+          preserveState: true,
+          preserveScroll: true,
+        });
+      }, 600),
     },
-  methods:{
+  },
+  methods: {
     logout() {
-          this.$inertia.post(route('logout'));
-        },
-  }
+      this.$inertia.post(route("logout"));
+    },
+  },
 };
 </script>

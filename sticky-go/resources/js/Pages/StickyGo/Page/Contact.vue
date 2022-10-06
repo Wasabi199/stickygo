@@ -63,7 +63,7 @@
             </div>
         </div>
     </div>
-    <div class="w-full bg-gray-100">
+    <div class="w-full py-5 bg-gray-100">
         <div class="m-auto w-fit text-3xl font-bold my-4">Visit us!</div>
         <div class="flex w-fit m-auto gap-x-3">
             <img class="w-64" src="../../../../../public/images/1.png" alt="">

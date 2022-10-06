@@ -1,9 +1,9 @@
 <template>
     <Navigation>
-        <div class="flex  min-h-screen h-fit p-14  w-full">
+        <div class="flex  min-h-screen h-fit px-32 py-14 w-full">
             <div class="w-1/4">
-                <h3 class="font-bold  text-2xl">By Category</h3>
-                <div class="ml-5 font-thin text-xl  cursor-pointer">
+                <h3 class="font-bold  text-xl">By Category</h3>
+                <div class="ml-5 font-thin text-md  cursor-pointer">
                     <p>Cute</p>
                     <p>Funny/Meme</p>
                     <p>Spooky</p>
@@ -12,7 +12,7 @@
                     <p>Illustration</p>
 
                 </div>
-                <h3 class="font-bold mt-8 text-2xl">Rating</h3>
+                <h3 class="font-bold mt-8 text-xl">Rating</h3>
                 <div class="ml-5 font-thin text-xl">
                     <div class="flex mt-3 gap-x-3 text-[#fcd062]">
                         <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" fill="currentColor" class="bi bi-star-fill" viewBox="0 0 16 16">
@@ -95,8 +95,8 @@
                         </svg>
                     </div>
                 </div>
-                <h3 class="font-bold mt-8 text-2xl">Price</h3>
-                <div class="ml-5 font-thin text-xl">
+                <h3 class="font-bold mt-8 text-xl">Price</h3>
+                <div class="ml-5 font-thin text-md">
                     <p class="mt-2">₱0 - ₱10</p>
                     <p class="mt-2">₱10 - ₱20</p>
                     <p class="mt-2">₱20 - Up</p>
@@ -104,12 +104,12 @@
             </div>
             <div class="3/4 w-full">
                 <div class="flex justify-between h-fit">
-                    <div class="flex gap-x-14 ">
+                    <div class="flex gap-x-5 ">
                         <div class="font-semibold text-2xl">Stickers</div>
-                        <div class="font-semibold text-gray-400 text-2xl">22,000 results</div>
+                        <div class="text-gray-400 pt-1 text-align-bottom text-lg">22,000 results</div>
                     </div>
                  
-                    <select class="w-52 text-xl">
+                    <select class="w-52 text-sm">
                         <option>Today</option>
                         <option>Today</option>
                         <option>Today</option>
@@ -127,8 +127,18 @@
                         </Link>    
                     </div>
                 </div>
-                <Pagination class="mt-10 text-2xl" :links="Stickers.links"></Pagination>
-             
+                <!-- <Pagination class="mt-10 text-xl text-center" :links="Stickers.links"></Pagination> -->
+                <div class="flex justify-between mt-10">
+                    <div class="font-bold text-lg text-gray-400">
+                        Previous
+                    </div>
+                    <div class="flex gap-x-4 font-bold text-lg text-center">
+                        <div>1</div>
+                        <div class="text-gray-400">2</div>
+                        <div  class="text-gray-400">3</div>
+                    </div>
+                    <div class="font-bold text-lg">Next</div>
+                </div>
             </div>
         </div>
     </Navigation>

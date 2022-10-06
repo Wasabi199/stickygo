@@ -1,6 +1,6 @@
 <template>
     <Navigation>
-        <div class=" h-fit m-auto w-5/12 mb-10">
+        <div v-if="Cart.length != 0" class=" h-fit m-auto w-5/12 mb-10">
             <div class="w-full text-center py-20 text-4xl font-semibold">Your Shopping Cart</div>
             <div class="flex w-full justify-between border-b-2 border-gray-300 px-2">
                 <div class="text-2xl font-bold">Order</div>
@@ -42,6 +42,9 @@
             </div>
             
             <div @click="checkout()" class=" cursor-pointer mt-10 text-center bg-blue-400 text-lg text-white py-5">PROCEED TO CHECKOUT</div>
+        </div>
+        <div v-else class="m-auto w-fit py-52 text-4xl font-semibold text-gray-400 h-fit">
+            Your Cart is Empty
         </div>
     </Navigation>
 </template>

@@ -1,12 +1,13 @@
 <template>
     <Navigation>
-       <div class="flex p-10">
-            <div class="w-1/2 ">
+        <div class="px-52">
+            <div class="flex">
+            <div class="w-1/2">
                 <img class="m-auto" :src="Product.product_profile !=null? Product.product_profile:''"/>
-                <p class="text-lg">Designed By: <span class="font-bold">{{Product.user.name}}</span></p>
+                <p class="text-lg mt-2   px-6">Designed By: <span class="font-bold">{{Product.user.name}}</span></p>
             </div>
-            <div class="h-fit m-auto w-1/2 px-10">
-                <div class="text-4xl font-semibold">{{Product.title}} Sticker</div>
+            <div class="h-fit m-auto w-1/2">
+                <div class="text-4xl font-semibold">{{Product.title}}Sticker</div>
                 <div class="flex mt-3 gap-x-3 text-[#fcd062]">
                         <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" fill="currentColor" class="bi bi-star-fill" viewBox="0 0 16 16">
                         <path d="M3.612 15.443c-.386.198-.824-.149-.746-.592l.83-4.73L.173 6.765c-.329-.314-.158-.888.283-.95l4.898-.696L7.538.792c.197-.39.73-.39.927 0l2.184 4.327 4.898.696c.441.062.612.636.282.95l-3.522 3.356.83 4.73c.078.443-.36.79-.746.592L8 13.187l-4.389 2.256z"/>
@@ -23,10 +24,10 @@
                         <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" fill="currentColor" class="bi bi-star-fill" viewBox="0 0 16 16">
                         <path d="M3.612 15.443c-.386.198-.824-.149-.746-.592l.83-4.73L.173 6.765c-.329-.314-.158-.888.283-.95l4.898-.696L7.538.792c.197-.39.73-.39.927 0l2.184 4.327 4.898.696c.441.062.612.636.282.95l-3.522 3.356.83 4.73c.078.443-.36.79-.746.592L8 13.187l-4.389 2.256z"/>
                         </svg>
-                        <div class="text-black">(2 reviews)</div>
+                        <div class="text-black">(3 reviews)</div>
                     </div>
-                    <div class="text-4xl font-bold my-8">₱{{Product.price.toLocaleString('en-US')}}</div>
-                    <div class="flex gap-x-5">
+                    <div class="text-4xl font-bold my-8">₱{{Product.price.toLocaleString('en-US')}}.00</div>
+                    <div class="flex gap-x-5 ">
                         <div class="w-full">
                             <p class="text-xl font-semibold">Type</p>
                             <select class="w-full text-lg" v-model="addToCartForm.type">
@@ -49,8 +50,8 @@
             </div>
         
        </div>
-       <div class="p-10 w-full">
-                <div class="flex gap-x-5 text-2xl font-bold my-5">
+       <div class="py-10 px-6 w-full">
+                <div class="flex gap-x-5 text-xl font-bold my-5">
                     <div class="cursor-pointer" @click="this.content = true" :class="this.content?'border-b-4 border-black':''">Description</div>
                     <div  class="cursor-pointer" @click="this.content = false" :class="!this.content?'border-b-4 border-black':''">Reviews (3)</div>
                 </div>
@@ -142,8 +143,8 @@
                         <div class="w-full bg-gray-200 rounded-lg"></div>
                     </div>
                     <div class="flex mt-10 gap-x-5 w-full">
-                        <div v-for="comment in Comment.data" v-bind:key="comment.id">
-                            <div class="w-[460px] bg-gray-400 rounded-lg">
+                        <div v-for="comment in Comment.data" v-bind:key="comment.id" class="w-1/3 ">
+                            <div class="h-full bg-gray-100 rounded-lg">
                                 <div class="flex pt-5 pl-5">
                                     <img class="w-20" :src="comment.user.profile_photo_path !=null?comment.user.profile_photo_path:''"/>
                                     <div class="ml-5">
@@ -172,23 +173,24 @@
                         </div>
                        
                     </div>
-                    <Pagination class="text-xl" :links="Comment.links"></Pagination>
+                    <!-- <Pagination class="text-xl" :links="Comment.links"></Pagination> -->
                 </div>
             </div>
-            <div class="p-10 w-full">
-                <div class="text-3xl font-bold">You may also like...</div>
-                <div class="flex w-full gap-x-5">
+            <div class="py-10 px-6 w-full mb-10">
+                <div class="text-2xl font-bold mb-5">You may also like...</div>
+                <div class="flex w-full gap-x-5 ">
                     <div class="" v-for="sticker in Stickers" v-bind:key="sticker.id">
                         <!-- <div class=""> -->
                             <img class="w-full" :src="sticker.product_profile !=null?sticker.product_profile:''"/>
-                            <div class="font-semibold text-lg">
-                                <p>{{sticker.title}}</p>
-                                <p >₱ {{sticker.price.toLocaleString('en-US')}}</p>
+                            <div >
+                                <p class="font-semibold text-lg">{{sticker.title}}</p>
+                                <p class="text-blue-300">₱ {{sticker.price.toLocaleString('en-US')}}.00</p>
                             </div>
                         <!-- </div> -->
                     </div>
                 </div>
             </div>
+        </div>
     </Navigation>
 </template>
 <script>

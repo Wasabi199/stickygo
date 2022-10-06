@@ -25,7 +25,7 @@ class StickersFactory extends Factory
         return [
             //
             'title'=>$this->faker->word(),
-            'price'=>$this->faker->numberBetween($min=0,$max=1000000),
+            'price'=>$this->faker->numberBetween($min=9,$max=20),
             'product_profile'=>$this->faker->randomElement($stikers),
             'description'=>$this->faker->paragraphs($nb = 3, $asText = true),
         ];

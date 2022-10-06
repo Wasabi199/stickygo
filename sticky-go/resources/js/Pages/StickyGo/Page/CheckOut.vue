@@ -1,6 +1,6 @@
 <template>
   <Navigation>
-    <div class="p-20">
+    <div class="py-20 px-32">
       <form method="POST">
         <div class="flex w-full">
           <div class="w-1/2 px-10">
@@ -133,35 +133,35 @@
           </div>
           <div class="w-1/2 px-10 ">
             <div class="text-3xl mb-5 font-semibold">Your Order</div>
-            <table class="w-full border-2 border-black ">
+            <table class="w-full border border-black ">
               <thead>
                 <tr >
-                  <th class="border-gray-400 border-2">Product</th>
-                  <th class="border-gray-400 border-2">Subtotal</th>
+                  <th class="border-black border py-2">Product</th>
+                  <th class="border-black border py-2">Subtotal</th>
                 </tr>
               </thead>
               <tbody v-for="cart in Cart" v-bind:key="cart.id">
                 <tr >
-                  <td class="border-gray-400 border-2 p-5">{{cart.title}}</td>
-                  <td class="border-gray-400 border-2 p-5">{{cart.price * cart.quantity}}</td>
+                  <td class="border-black border p-5">{{cart.title}}</td>
+                  <td class="border-black border p-5">{{cart.price * cart.quantity}}</td>
                 </tr>
               </tbody>
               <tbody>
                 <tr>
-                  <td class="border-gray-400 border-2 p-5">SubTotal</td>
-                  <td class="border-gray-400 border-2 p-5">Price</td>
+                  <td class="border-black border p-5">SubTotal</td>
+                  <td class="border-black border p-5">Price</td>
                 </tr>
                 <tr>
-                  <td class="border-gray-400 border-2 p-5">Shipping</td>
-                  <td class="border-gray-400 border-2 p-5">Price</td>
+                  <td class="border-black border p-5">Shipping</td>
+                  <td class="border-black border p-5">Price</td>
                 </tr>
                 <tr>
-                  <td class="border-gray-400 border-2 p-5">Total</td>
-                  <td class="border-gray-400 border-2 p-5">Price</td>
+                  <td class="border-black border p-5">Total</td>
+                  <td class="border-black border p-5">Price</td>
                 </tr>
               </tbody>
             </table>
-            <div class="w-full my-5 py-5 border-2 border-black text-xl text-center">Back To Cart</div>
+            <div class="cursor-pointer w-full my-5 py-5 border-2 border-black text-xl text-center">Back To Cart</div>
             <div @click="checkout()" class="cursor-pointer w-full my-5 py-5 bg-blue-500 text-xl text-white text-center">Place Order</div>
           </div>
         </div>
