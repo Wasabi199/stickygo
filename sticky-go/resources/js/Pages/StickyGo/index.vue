@@ -43,8 +43,9 @@
                 <div class="text-center m-auto" v-for="artist in Artist" v-bind:key="artist.id">
                     <img class="w-52 mb-6   rounded-full " :src="artist.profile_photo_path=null?'':artist.profile_photo_path">
                     <span class="font-semibold text-lg ">{{artist.name}}</span>
-                    <div class="border-2 border-black m-auto mt-3 cursor-pointer py-1 bg-gray-200 w-1/2 rounded-xl">Follow</div>
-                    
+                    <Link :href="route('artistProfile',artist.id)">
+                        <div class="border-2 border-black m-auto mt-3 cursor-pointer py-1 bg-gray-200 w-1/2 rounded-xl">Follow</div>
+                    </Link>
                 </div>
             </div>
         </div>

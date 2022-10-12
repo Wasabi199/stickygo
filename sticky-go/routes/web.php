@@ -29,10 +29,15 @@ Route::get('/History',[IndexController::class,'history'])->name('history');
 Route::get('/Help',[IndexController::class,'help'])->name('help');
 Route::get('/ProceedToCheckOut',[IndexController::class,'checkOut'])->name('checkOut');
 Route::get('/ThankYou',[IndexController::class,'thankyou'])->name('thankyou');
+Route::get('/Profile',[IndexController::class,'profile'])->name('profile');
+Route::get('/AddWork',[IndexController::class,'addWork'])->name('addWork');
+Route::get('/Artis/{id}',[IndexController::class,'artistProfile'])->name('artistProfile');
+Route::get('/Settings',[IndexController::class,'settings'])->name('settings');
+
 
 Route::get('/Checkout',[StickersController::class,'checkout'])->name('checkout');
 Route::post('/addToCart',[StickersController::class,'addToCart'])->name('addToCart');
-
+Route::post('/addsticker',[StickersController::class,'addsticker'])->name('addsticker');
 
 // Routing Functions
 Route::post('/addToCart/Update',[StickersController::class,'btnUpdateQuantity'])->name('btnUpdateQuantity');

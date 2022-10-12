@@ -1,7 +1,7 @@
 <template>
-  <div>
+  <div class="">
     <div class=" h-fit w-full bg-white">
-      <nav class="sticky top-0 bg-white border-b border-gray-100">
+      <nav class="z-50 sticky top-0 bg-white border-b border-gray-100">
         <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div class="flex justify-between h-16">
             <div class="flex justify-between h-16">
@@ -289,8 +289,14 @@
                     </template>
 
                     <template #content>
+                      <DropdownLink :href="route('profile')">
+                        Profile
+                      </DropdownLink>
                       <DropdownLink :href="route('history')">
-                        History
+                        Order History
+                      </DropdownLink>
+                      <DropdownLink :href="route('settings')">
+                        Account Settings
                       </DropdownLink>
                       <DropdownLink :href="route('help')"> Help </DropdownLink>
                       <form @submit.prevent="logout">

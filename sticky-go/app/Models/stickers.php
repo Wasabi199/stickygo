@@ -11,7 +11,6 @@ class stickers extends Model
     protected $fillable =[
         'title',
         'price',
-        
         'product_profile',
         'description'  
     ];

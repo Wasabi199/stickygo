@@ -135,4 +135,49 @@ class IndexController extends Controller
             
   ]);
     }
+    public function profile(){
+        $searchSticker = stickers::filter(QueryRequest::only('search'))->get();
+        $filters = QueryRequest::all('search');
+        $artist = User::findOrFail(Auth::user()->id);
+        $sticker = stickers::where('user_id',$artist->id)->get();
+        return Inertia::render('StickyGo/Page/Profile',[
+            'Search'=>$searchSticker,
+            'filters'=>$filters,
+            'Artist'=>$artist,
+            'Stickers'=>$sticker,
+  ]);
+    }
+    public function addWork(){
+        $searchSticker = stickers::filter(QueryRequest::only('search'))->get();
+        $filters = QueryRequest::all('search');
+       
+        return Inertia::render('StickyGo/Page/AddWork',[
+            'Search'=>$searchSticker,
+            'filters'=>$filters,
+            
+            
+  ]);
+    }
+    public function artistProfile($id){
+        $searchSticker = stickers::filter(QueryRequest::only('search'))->get();
+        $filters = QueryRequest::all('search');
+        $artist = User::findOrFail($id);
+        $sticker = stickers::where('user_id',$artist->id)->get();
+        return Inertia::render('StickyGo/Page/ArtistProfile',[
+            'Search'=>$searchSticker,
+            'filters'=>$filters,
+            'Artist'=>$artist,
+            'Stickers'=>$sticker
+            
+  ]);
+    }
+
+    public function settings(){
+        $searchSticker = stickers::filter(QueryRequest::only('search'))->get();
+        $filters = QueryRequest::all('search');
+        return Inertia::render('StickyGo/Page/Settings',[
+            'Search'=>$searchSticker,
+            'filters'=>$filters,
+]);
+    }
 }

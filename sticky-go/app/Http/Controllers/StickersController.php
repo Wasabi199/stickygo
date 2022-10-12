@@ -9,6 +9,7 @@ use Illuminate\Support\Facades\Redirect;
 use App\Http\Requests\UpdateQuantityRequest as updateRequest;
 use App\Http\Requests\DeleteItemCartRequest as deleteItemRequest;
 use App\Http\Requests\AddCartRequest as cartRequest;
+use App\Http\Requests\StickerCreateRequest as stickerRequest;
 
 class StickersController extends Controller
 {
@@ -69,7 +70,25 @@ class StickersController extends Controller
             $cartItem->delete();
             return Redirect::route('thankyou');
         }
-        
+    }
 
+    public function addsticker(stickerRequest $request){
+        $validated_data = $request->validated();
+        $user = User::find(Auth::user()->id);
+        // dd($validated_data);
+        // if($request->has('product_profile')){
+            // $path = $validated_data['product_profile']->storePublicly('ComplaintImages',  ['disk'=>'public']);
+            $user->sticker()->create([
+                'title'=>$validated_data['title'],
+                'price'=>$validated_data['price'],
+                'description'=>$validated_data['description'],
+                'product_profile'=>'../../../../storage/images/Sticker.png'
+            ]);
+            
+        // }else{
+        //     // No Image
+        // }
+        dd('success');
+       
     }
 }

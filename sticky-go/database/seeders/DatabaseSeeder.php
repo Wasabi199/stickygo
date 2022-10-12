@@ -29,6 +29,6 @@ class DatabaseSeeder extends Seeder
             'password'=>Hash::make('password'),
             'profile_photo_path'=>'/images/Artist.png'
         ]);
-        User::factory(50)->has(stickers::factory()->has(otherImages::factory(3),'otherImages'),'sticker')->has(comment::factory(3),'comment')->has(personalInformation::factory(),'personal')->create();
+        User::factory(50)->has(stickers::factory(10)->has(otherImages::factory(3),'otherImages'),'sticker')->has(comment::factory(3),'comment')->has(personalInformation::factory(),'personal')->create();
     }
 }
