@@ -14,13 +14,13 @@
                 <div class="space-y-5">
                     <div class="flex w-fit space-x-2">
                         <div class="">
-                            <img class="w-32" src="../../../../../public/images/Me.png"/>
+                            <img class="w-32" :src="info.profile_photo_path !=null?info.profile_photo_path:''"/>
                         </div>
                         <div class="h-fit m-auto text-lg font-semibold text-blue-400">Change Profile Photo</div>
                     </div>
                     <div class="flex w-fit space-x-2">
                         <div class="">
-                            <img class=" w-96" src="../../../../../public/images/AmeliaCover.png"/>
+                            <img class=" w-96" :src="info.profile_banner_path !=null?info.profile_banner_path:''"/>
                         </div>
                         <div class="h-fit m-auto text-lg font-semibold text-blue-400">Change Profile Photo</div>
                     </div>
@@ -30,29 +30,32 @@
                         <div class=" space-y-2">
                             <div class="flex justify-between">
                                 <p class="text-xl h-fit my-auto">Name</p>
-                                <input class="w-9/12 rounded-lg" type="text"/>
+                                <input class="w-9/12 rounded-lg" type="text" :placeholder="info.name"/>
                             </div>
                             <div class="flex justify-between">
                                 <p class="text-xl h-fit my-auto">Username</p>
-                                <input class="w-9/12 rounded-lg" type="text"/>
+                                <input class="w-9/12 rounded-lg" type="text" :placeholder="info.name"/>
                             </div>
                             <div class="flex justify-between">
                                 <p class="text-xl">About</p>
-                                <textarea class="w-9/12 h-40 rounded-lg" type="text"></textarea>
+                                <textarea class="w-9/12 h-40 rounded-lg" type="text" :placeholder="info.personal.about"></textarea>
                             </div>
                         </div>
                         <div class="mt-20 space-y-2">
                             <div class="flex justify-between">
                                 <p class="text-xl h-fit my-auto">Email</p>
-                                <input class="w-9/12 rounded-lg" type="text"/>
+                                <input class="w-9/12 rounded-lg" type="text" :placeholder="info.email"/>
                             </div>
                             <div class="flex justify-between">
                                 <p class="text-xl h-fit my-auto">Phone Number</p>
-                                <input class="w-9/12 rounded-lg" type="number"/>
+                                <input class="w-9/12 rounded-lg" type="number" :placeholder="info.personal.contact"/>
                             </div>
                             <div class="flex justify-between">
                                 <p class="text-xl h-fit my-auto">Gender</p>
-                                <input class="w-9/12 rounded-lg" type="text"/>
+                                <select class="w-9/12 rounded-lg" >
+                                    <option disabled>Select Gender</option>
+                                    <option v-for="gen in gender" v-bind:key="gen.id">{{gen}}</option>
+                                </select>
                             </div>
                         </div>
                         <div class="text-red-500 text-xl font-semibold px-44 mt-3">Delete my account</div>
@@ -105,19 +108,19 @@
                 <div class="space-y-3 text-lg">
                     <div class="flex justify-between">
                         <p class="text-xl h-fit my-auto">Street</p>
-                        <input class="w-9/12 rounded-lg" type="text"/>
+                        <input class="w-9/12 rounded-lg" type="text" :placeholder="info.personal.house_number"/>
                     </div>
                     <div class="flex justify-between">
                         <p class="text-xl h-fit my-auto">City/Town</p>
-                        <input class="w-9/12 rounded-lg" type="text"/>
+                        <input class="w-9/12 rounded-lg" type="text" :placeholder="info.personal.city"/>
                     </div>
                     <div class="flex justify-between">
                         <p class="text-xl h-fit my-auto">Province</p>
-                        <input class="w-9/12 rounded-lg" type="text"/>
+                        <input class="w-9/12 rounded-lg" type="text" :placeholder="info.personal.province"/>
                     </div>
                     <div class="flex justify-between">
                         <p class="text-xl h-fit my-auto">ZIP Code</p>
-                        <input class="w-9/12 rounded-lg" type="text"/>
+                        <input class="w-9/12 rounded-lg" type="text" :placeholder="info.personal.zip"/>
                     </div>
                 </div>
               </div>
@@ -234,10 +237,17 @@ export default {
     props: {
     Search: Object,
     filters: Object,
+    info:Object
     },
     data(){
         return{
-            navigation:1
+            navigation:1,
+
+            gender:[
+                'Male',
+                'Female',
+                'Other'
+            ]
         }
     },
     methods:{

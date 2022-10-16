@@ -32,14 +32,14 @@ class StickersController extends Controller
                 'product_profile'=>$addToCart->product_profile,
             ]);
      
-        dd('Success');
+        // dd('Success');
         }
         else{
             $exist_sticker->update([
                 'quantity'=> $exist_sticker->quantity + 1
             ]);
-            dd('Success');
         }
+        return Redirect::route('cart');
     }
     public function btnUpdateQuantity(updateRequest $request){
         $validated_data = $request->validated();

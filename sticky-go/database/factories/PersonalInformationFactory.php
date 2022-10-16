@@ -16,6 +16,11 @@ class PersonalInformationFactory extends Factory
      */
     public function definition()
     {
+        $gender=[
+            'Male',
+            'Female',
+            'Other'
+        ];
         return [
             //
             'name' => $this->faker->firstName(),
@@ -25,6 +30,9 @@ class PersonalInformationFactory extends Factory
             'barangay'=>$this->faker->streetName(),
             'city'=>$this->faker->city(),
             'province'=>$this->faker->state(),
+            'gender'=>$this->faker->randomElement($gender),
+            'zip'=>$this->faker->postcode(),
+            'about'=>$this->faker->paragraphs($nb = 3, $asText = true)
         ];
     }
 }

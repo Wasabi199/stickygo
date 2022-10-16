@@ -23,6 +23,9 @@ return new class extends Migration
             $table->string('barangay');
             $table->string('city');
             $table->string('province');
+            $table->longText('about');
+            $table->string('gender');
+            $table->string('zip');
             $table->timestamps();
         });
     }

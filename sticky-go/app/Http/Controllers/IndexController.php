@@ -175,9 +175,12 @@ class IndexController extends Controller
     public function settings(){
         $searchSticker = stickers::filter(QueryRequest::only('search'))->get();
         $filters = QueryRequest::all('search');
+        $user = User::with('personal')->findOrFail(Auth::user()->id);
+        
         return Inertia::render('StickyGo/Page/Settings',[
             'Search'=>$searchSticker,
             'filters'=>$filters,
+            'info'=>$user
 ]);
     }
 }
