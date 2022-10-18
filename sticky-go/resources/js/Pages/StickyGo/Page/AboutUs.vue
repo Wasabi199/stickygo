@@ -4,17 +4,17 @@
             <div class="w-1/2 p-10">
                 <img class="m-auto w-10/12 h-72 " src="../../../../../public/images/generic-image-placeholder.png" alt=""></div>
             <div class="w-1/2 m-auto p-20 text-lg">
-                <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Minus consectetur blanditiis vero, fugiat quae illo ea cum iure voluptates natus, architecto magni nostrum veritatis commodi necessitatibus quisquam cupiditate, eos aliquam? Lorem ipsum dolor sit amet consectetur adipisicing elit. Earum natus dolor hic nulla suscipit repellendus voluptatibus eum, ad, architecto tempora debitis ea voluptatum accusamus quos alias voluptas aliquid repellat numquam.s</p>
+                <p>Here at StickyGo we offer fun and exciting stickers created by different artists from the Philippines. We offer high quality product that is fit designed for your artistic personality.<br><br><br>The company offers opportunity for local artists to be recognized nationwide. Your artworks represents your persona and character online.  You have the ability to be creative, you just have to let it shine. Whether you are an artist or just looking for a new hobby, you'll find that just a click away.</p>
             </div>
         </div>
         <div class="flex h-fit w-full px-10 text-center bg-gray-200">
             <div class="w-1/2 m-auto p-10 text-lg">
                 <p class="font-semibold">Mission</p>
-                <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Minus consectetur blanditiis vero, fugiat quae illo ea cum iure voluptates natus, architecto magni nostrum veritatis commodi necessitatibus quisquam cupiditate, eos aliquam? Lorem ipsum dolor sit amet consectetur adipisicing elit. Earum natus dolor hic nulla suscipit repellendus voluptatibus eum, ad, architecto tempora debitis ea voluptatum accusamus quos alias voluptas aliquid repellat numquam.s</p>
+                <p>Offers good quality products and opportunity for filipino artist.</p>
             </div>
             <div class="w-1/2 m-auto p-10 text-lg">
                 <p class="font-semibold">Vision</p>
-                <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Minus consectetur blanditiis vero, fugiat quae illo ea cum iure voluptates natus, architecto magni nostrum veritatis commodi necessitatibus quisquam cupiditate, eos aliquam? Lorem ipsum dolor sit amet consectetur adipisicing elit. Earum natus dolor hic nulla suscipit repellendus voluptatibus eum, ad, architecto tempora debitis ea voluptatum accusamus quos alias voluptas aliquid repellat numquam.s</p>
+                <p>A country that is full of creativity and connects us all with our passion.</p>
             </div>
         </div>
         <div class="h-fit w-full">
