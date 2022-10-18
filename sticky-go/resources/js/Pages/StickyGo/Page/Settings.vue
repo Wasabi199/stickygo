@@ -96,7 +96,11 @@
                     <p class="h-fit my-auto text-lg">Valid ID</p>
                     <div class="flex w-9/12 rounded-lg">
                         <select class="w-1/2">
-                            <option>Select ID</option>
+                            <option disabled>Select ID</option>
+                            <option>SSS ID</option>
+                            <option>Driving License</option>
+                            <option>UMID ID</option>
+                            
                         </select>
                         <div class="h-fit m-auto text-lg bg-gray-200 border-black border-2 py-1 px-10 ">Upload Image</div>
                     </div>

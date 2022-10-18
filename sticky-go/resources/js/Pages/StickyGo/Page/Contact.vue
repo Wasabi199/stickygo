@@ -61,6 +61,9 @@
             <div class="w-full pt-5">
                 <textarea type="text" placeholder="Message" class="w-full py-3 h-72"></textarea>
             </div>
+            <div class="w-full flex justify-end pt-5">
+                <div class="py-2 px-10 bg-blue-500 text-white">Submit</div>
+            </div>
         </div>
     </div>
     <div class="w-full py-5 bg-gray-100">

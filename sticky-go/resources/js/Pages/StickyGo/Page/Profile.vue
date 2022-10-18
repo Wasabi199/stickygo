@@ -3,7 +3,7 @@
     <div>
       <div
         class="w-full h-80 bg-no-repeat bg-cover"
-        style="background-image: url('/images/AmeliaCover.png')"
+        style="background-image:url('/images/AmeliaCover.png')"
       >
     </div>
     <div class="absolute z-20 top-80 w-full">
@@ -11,7 +11,7 @@
             <img  class="w-56 " :src="Artist.profile_photo_path !=null?Artist.profile_photo_path:''"/>
             <div class="h-fit ">
                 <div class="flex gap-x-5 pt-24">
-                    <div class="text-5xl font-medium">AmeliaMay</div>
+                    <div class="text-5xl font-medium">{{Artist.name}}</div>
                     <div class="border-2 border-black m-auto text-lg w-fit  text-center cursor-pointer px-10 py-1 bg-gray-200  rounded-md">Edit Profile</div>
                 </div>
                 <div class="flex mt-2 gap-x-5">
@@ -38,11 +38,11 @@
         <div class="my-10">
             <div class="grid grid-cols-4 grid-flow-auto gap-5 ">
                 <div v-for="sticker in Stickers" v-bind:key="sticker.id">
-                    <div>
+                      <Link :href="route('product',sticker.id)">
                         <img :src="sticker.product_profile"/>
                         <p>{{sticker.title}}</p>
                         <p class="text-blue-400">{{sticker.price}}.00</p>
-                    </div>
+                      </Link>
                 </div>
                 
             </div>

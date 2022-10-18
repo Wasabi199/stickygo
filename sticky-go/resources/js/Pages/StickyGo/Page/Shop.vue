@@ -110,11 +110,25 @@
                     </div>
                  
                     <select class="w-52 text-sm">
-                        <option>Today</option>
-                        <option>Today</option>
-                        <option>Today</option>
-                        <option>Today</option>
+                        <option disabled>Select Category</option>
+                        <option>Cute</option>
+                        <option>Funny/Meme</option>
+                        <option>Spooky</option>
+                        <option>Film/Show</option>
+                        <option>Qoute</option>
+                        <option>illustration</option>
                     </select>
+                </div>
+                <div class="flex justify-between mt-10">
+                    <div class="font-bold text-lg text-gray-400">
+                        Previous
+                    </div>
+                    <div class="flex gap-x-4 font-bold text-lg text-center">
+                        <div>1</div>
+                        <div class="text-gray-400">2</div>
+                        <div  class="text-gray-400">3</div>
+                    </div>
+                    <div class="font-bold text-lg">Next</div>
                 </div>
                 <div class="grid grid-cols-4 mt-10 gap-10">
                     <div v-for="sticker in Stickers.data" v-bind:key="sticker.id">

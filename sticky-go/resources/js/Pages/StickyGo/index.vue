@@ -18,9 +18,11 @@
             </div>
             <div class="flex mt-5 gap-x-4" >
                 <div class="" v-for="sticker in Stickers" v-bind:key="sticker.id">
-                    <img class="mb-2" :src="sticker.product_profile=null?'':sticker.product_profile">
-                    <span class="font-semibold  text-lg pl-2">{{sticker.title}}</span>
-                    <h5 class="text-blue-300 pl-2">₱ {{sticker.price.toLocaleString('en-US')}}.00</h5>
+                    <Link :href="route('product',sticker.id)">
+                        <img class="mb-2" :src="sticker.product_profile=null?'':sticker.product_profile">
+                        <span class="font-semibold  text-lg pl-2">{{sticker.title}}</span>
+                        <h5 class="text-blue-300 pl-2">₱ {{sticker.price.toLocaleString('en-US')}}.00</h5>
+                    </Link>
                 </div>
             </div>
             <div class="flex justify-between w-full mt-20 ">
@@ -31,9 +33,11 @@
             </div>
             <div class="flex mt-5 gap-x-4" >
                 <div class="" v-for="sticker in Stickers" v-bind:key="sticker.id">
-                    <img class="mb-2 " :src="sticker.product_profile=null?'':sticker.product_profile">
-                    <span class="font-semibold  text-lg pl-2">{{sticker.title}}</span>
-                    <h5 class="text-blue-300 pl-2">₱ {{sticker.price.toLocaleString('en-US')}}.00</h5>
+                    <Link :href="route('product',sticker.id)">
+                        <img class="mb-2 " :src="sticker.product_profile=null?'':sticker.product_profile">
+                        <span class="font-semibold  text-lg pl-2">{{sticker.title}}</span>
+                        <h5 class="text-blue-300 pl-2">₱ {{sticker.price.toLocaleString('en-US')}}.00</h5>
+                    </Link>
                 </div>
             </div>
             <div class="flex justify-between w-full mt-20 ">

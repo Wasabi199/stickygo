@@ -1,7 +1,7 @@
 <template>
   <div class="">
     <div class=" h-fit w-full bg-white">
-      <nav class="z-50 sticky top-0 bg-white border-b border-gray-100">
+      <nav class="z-50 sticky top-0 bg-white border-b-2 border-gray-100">
         <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div class="flex justify-between h-16">
             <div class="flex justify-between h-16">
@@ -77,7 +77,9 @@
                         v-for="result in this.$page.props.Search"
                         v-bind:key="result.id"
                       >
+                      
                         <div>
+                          <Link :href="route('product',result.id)">
                           <img
                             class="w-24"
                             :src="
@@ -87,10 +89,12 @@
                             "
                             alt=""
                           />
+                          </Link>
                         </div>
                         <div class="my-auto ml-5 font-semibold text-lg">
                           {{ result.title }}
                         </div>
+                      
                       </div>
                     </div>
                   </div>

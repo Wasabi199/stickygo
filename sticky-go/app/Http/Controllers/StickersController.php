@@ -82,7 +82,7 @@ class StickersController extends Controller
                 'title'=>$validated_data['title'],
                 'price'=>$validated_data['price'],
                 'description'=>$validated_data['description'],
-                'product_profile'=>'../../../../storage/images/Sticker.png'
+                'product_profile'=>'../../../../public/images/Sticker.png'
             ]);
             
         // }else{

@@ -1,6 +1,6 @@
 <template>
     <Navigation>
-        <div class="min-h-fit flex flex-col sm:justify-center items-center pt-6 sm:pt-0 ">
+        <div class="min-h-fit flex flex-col sm:justify-center items-center py-20 sm:pt-0 ">
             <!-- <div>
                 <div class="text-4xl font-semibold">Welcome back!</div>
             </div> -->

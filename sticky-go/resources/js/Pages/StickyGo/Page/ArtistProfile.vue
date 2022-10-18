@@ -3,7 +3,7 @@
     <div>
       <div
         class="w-full h-80 bg-no-repeat bg-cover"
-        style="background-image: url('/images/AmeliaCover.png')"
+        style="background-image:url('/images/AmeliaCover.png')"
       >
     </div>
     <div class="absolute z-20 top-80 w-full">
@@ -38,11 +38,11 @@
         <div class="my-10">
             <div  class="grid grid-cols-4 grid-flow-auto gap-5 ">
                 <div v-for="sticker in Stickers" v-bind:key="sticker.id" class="">
-                    <div>
+                    <Link :href="route('product',sticker.id)">
                         <img :src="sticker.product_profile != null?sticker.product_profile :''"/>
                         <p>{{sticker.title}}</p>
                         <p class="text-blue-400">{{sticker.price}}.00</p>
-                    </div>
+                      </Link>
                 </div>
                 
             </div>
