@@ -91,7 +91,7 @@
                           />
                           </Link>
                         </div>
-                        <div class="my-auto ml-5 font-semibold text-lg">
+                        <div class="my-auto ml-5 font-semibold text-lg capitalize">
                           {{ result.title }}
                         </div>
                       

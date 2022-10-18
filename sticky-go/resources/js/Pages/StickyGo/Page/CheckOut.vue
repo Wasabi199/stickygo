@@ -142,7 +142,7 @@
               </thead>
               <tbody v-for="cart in Cart" v-bind:key="cart.id">
                 <tr >
-                  <td class="border-black border p-5">{{cart.title}}</td>
+                  <td class="border-black border p-5 capitalize">{{cart.title}}</td>
                   <td class="border-black border p-5">{{cart.price * cart.quantity}}</td>
                 </tr>
               </tbody>

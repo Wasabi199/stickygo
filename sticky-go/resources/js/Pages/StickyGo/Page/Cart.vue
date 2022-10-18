@@ -10,7 +10,7 @@
                 <div class="flex mt-5  justify-between border-b-2 border-gray-300">
                     <div class="flex">
                         <img class="w-36 mb-4" :src="cart.product_profile ==null?'':cart.product_profile">
-                        <p class="m-auto pl-2 text-lg font-semibold">{{cart.title}}</p>
+                        <p class="m-auto pl-2 text-lg font-semibold capitalize">{{cart.title}}</p>
                     </div>
                     <div class="flex m-auto space-x-3">
                         <button @click="btnSub(cart)" :disabled="cart.quantity <= 1 " class="border-2 h-10 w-10">-</button>

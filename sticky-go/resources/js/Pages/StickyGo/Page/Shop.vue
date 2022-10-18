@@ -135,7 +135,7 @@
                         <Link :href="route('product',sticker.id)">
                             <div class="h-fit w-fit">
                                 <img :src="sticker.product_profile=null?'':sticker.product_profile"/>
-                                <span class="font-semibold  text-lg pl-2">{{sticker.title}}</span>
+                                <span class="font-semibold  text-lg pl-2 capitalize">{{sticker.title}}</span>
                             <h5 class="text-blue-300 pl-2">₱ {{sticker.price.toLocaleString('en-US')}}.00</h5>
                             </div>
                         </Link>    

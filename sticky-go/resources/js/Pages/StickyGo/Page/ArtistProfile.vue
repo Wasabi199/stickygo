@@ -40,7 +40,7 @@
                 <div v-for="sticker in Stickers" v-bind:key="sticker.id" class="">
                     <Link :href="route('product',sticker.id)">
                         <img :src="sticker.product_profile != null?sticker.product_profile :''"/>
-                        <p>{{sticker.title}}</p>
+                        <p class="capitalize">{{sticker.title}}</p>
                         <p class="text-blue-400">{{sticker.price}}.00</p>
                       </Link>
                 </div>

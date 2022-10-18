@@ -20,7 +20,7 @@
                 <div class="" v-for="sticker in Stickers" v-bind:key="sticker.id">
                     <Link :href="route('product',sticker.id)">
                         <img class="mb-2" :src="sticker.product_profile=null?'':sticker.product_profile">
-                        <span class="font-semibold  text-lg pl-2">{{sticker.title}}</span>
+                        <span class="font-semibold  text-lg pl-2 capitalize">{{sticker.title}}</span>
                         <h5 class="text-blue-300 pl-2">₱ {{sticker.price.toLocaleString('en-US')}}.00</h5>
                     </Link>
                 </div>
@@ -35,7 +35,7 @@
                 <div class="" v-for="sticker in Stickers" v-bind:key="sticker.id">
                     <Link :href="route('product',sticker.id)">
                         <img class="mb-2 " :src="sticker.product_profile=null?'':sticker.product_profile">
-                        <span class="font-semibold  text-lg pl-2">{{sticker.title}}</span>
+                        <span class="font-semibold  text-lg pl-2 capitalize">{{sticker.title}}</span>
                         <h5 class="text-blue-300 pl-2">₱ {{sticker.price.toLocaleString('en-US')}}.00</h5>
                     </Link>
                 </div>

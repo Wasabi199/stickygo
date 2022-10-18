@@ -183,7 +183,7 @@
                         <!-- <div class=""> -->
                             <img class="w-full" :src="sticker.product_profile !=null?sticker.product_profile:''"/>
                             <div >
-                                <p class="font-semibold text-lg">{{sticker.title}}</p>
+                                <p class="font-semibold text-lg capitalize">{{sticker.title}}</p>
                                 <p class="text-blue-300">₱ {{sticker.price.toLocaleString('en-US')}}.00</p>
                             </div>
                         <!-- </div> -->

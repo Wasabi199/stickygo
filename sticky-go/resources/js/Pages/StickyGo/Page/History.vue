@@ -27,7 +27,7 @@
                             <div class="flex justify-center gap-x-5">
                                 <img class="w-44" :src="item.product_profile !=null ? item.product_profile:''"/>
                                 <div class="my-auto">
-                                    <p class="text-2xl ">{{item.title}}</p>
+                                    <p class="text-2xl capitalize">{{item.title}}</p>
                                     <p class="text-lg ">Qty: {{item.quantity}}</p>
                                 </div>
                             </div>
